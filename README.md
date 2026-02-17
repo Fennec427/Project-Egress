@@ -6,3 +6,4 @@ The game will feature gameplay elements such as paint tools, paints, and a varie
 Paint tools and paint types will add a unique twist to the platforming by providing different abilities for the player to interact with!
 
 Developed by Ethan Todd, Madeline Rosshirt, and Liam Bragg
+Made with Unity
