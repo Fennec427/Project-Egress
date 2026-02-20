@@ -7,7 +7,7 @@
 This repository is for "Project Egress", a video game for submission as a senior capstone project. The game is a 2D platformer inspired by Portal and Splatoon. <br>
 It will feature gameplay elements such as paint tools, paints, and a variety of traps to damage the player. "Paint tools" and "paint types" will be our unique twist to the platforming style that will provide different abilities for the player to interact with!<br>
 
-## Gamplay
+## Gameplay
 
 ### Progression
 The main aspect of the game's progression is a level-based system focused on progressing through different areas. On top of levels, there will be a sandbox for the player to practice with the tools and other aspects of "Project: Egress."
@@ -25,7 +25,7 @@ The aesthetics of "Project: Egress" will be drier so the player character's acti
 If time permits, a more complex narritive could be created using dialogue from signs and NPCs or environmental details. 
 
 ## Goal
-Our goal is to produce a 2D, level-based, and puzzle platformer game by June that features the games core mechanics. The theme and story will likely take the backseat while we focus on the base game itself.
+Our goal is to produce a 2D, level-based, and puzzle platformer game by June 2026 that features the games core mechanics. The theme and story will likely take the backseat while we focus on the base game itself.
 
 ## Resources
 <ul>
@@ -36,5 +36,5 @@ Our goal is to produce a 2D, level-based, and puzzle platformer game by June tha
 </ul>
 
 ## Creators & Contacts:
-Developed by Ethan Todd, Madeline Rosshirt, and Liam Bragg<br>
+Developed by [Ethan Todd](mailto:ethan.todd427@gmail.com), [Madeline Rosshirt](mailto:madeline.trans.girl@gmail.com), and [Liam Bragg](mailto:liambragg1@gmail.com)<br>
 Contact us at 'ethan.todd427@gmail.com', 'madeline.trans.girl@gmail.com', and 'liambragg1@gmail.com' respectively<br>
