@@ -38,3 +38,4 @@ Our goal is to produce a 2D, level-based, and puzzle platformer game by June 202
 ## Creators & Contacts:
 Developed by [Ethan Todd](mailto:ethan.todd427@gmail.com), [Madeline Rosshirt](mailto:madeline.trans.girl@gmail.com), and [Liam Bragg](mailto:liambragg1@gmail.com)<br>
 Contact us at 'ethan.todd427@gmail.com', 'madeline.trans.girl@gmail.com', and 'liambragg1@gmail.com' respectively<br>
+Check for updates here: https://trello.com/b/D29yQgac/project-egress
