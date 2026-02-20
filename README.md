@@ -29,10 +29,10 @@ Our goal is to produce a 2D, level-based, and puzzle platformer game by June tha
 
 ## Resources
 <ul>
-<li>**Engine:** Unity</li>
-<li>**Language:** C#</li>
-<li>**Code Editor:** Visual Studio Code</li>  
-<li>**Art:** Piskel</li>  
+<li><strong>Engine:</strong> Unity</li>
+<li><strong>Language:</strong> C#</li>
+<li><strong>Code Editor:</strong> Visual Studio Code</li>  
+<li><strong>Art:</strong> Piskel</li>  
 </ul>
 
 ## Creators & Contacts:
