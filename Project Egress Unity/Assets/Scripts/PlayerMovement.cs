@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Vector2 moveValue = move.ReadValue<Vector2>();
-        //print(moveValue);
         rb.linearVelocity = new Vector2(moveValue.x*movespeed, rb.linearVelocity.y);
 
          // 2. Jump Logic - Both comment are N - J
@@ -37,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
     private void FixedUpdate()
-    {
-        //rb.linearVelocity = new Vector2(horizontalInput*movespeed, rb.linearVelocity.y);
-        
+    {        
     }
 }
