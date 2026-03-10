@@ -8,11 +8,6 @@ public class Tile : MonoBehaviour
     void Start()
     {
         int rand = Random.Range(0,tiles.Length);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameObject.GetComponent<SpriteRenderer>().sprite = tiles[rand];
     }
 }
