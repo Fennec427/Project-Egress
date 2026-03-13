@@ -14,11 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTime = 0f; // default value at 0 to prevent players from possibly jumping immediately upon level load
     [SerializeField] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
     private float jumpBuffer = 0f; // time 
-    [SerializeField] private float jumpLenience = 0.1f; // time before buffer expires
+    [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
 
     // Ground detection
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
-    [SerializeField] private float checkRadius = 0.15f; // Size of the detection circle
+    [SerializeField] private float checkRadius = 0.07f; // Size of the detection circle
     [SerializeField] private LayerMask groundLayer; // Object layer for sensor to detect
 
     private Rigidbody2D rb; // Used to set movement
