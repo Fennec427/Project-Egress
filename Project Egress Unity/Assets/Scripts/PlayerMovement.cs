@@ -90,8 +90,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            gameObject.SetActive(false);
-            Debug.Log("YOU ARE DED");
+            Object.FindAnyObjectByType<GameManager>().PlayerDied();
         }
     }
 }
