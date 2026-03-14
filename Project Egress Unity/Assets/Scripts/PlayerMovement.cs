@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
-        if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || coyoteTime > 0f))
+        if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0)))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
         }
