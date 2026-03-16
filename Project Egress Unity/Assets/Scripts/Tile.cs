@@ -8,18 +8,18 @@ public class Tile : MonoBehaviour
     void Start()
     {
         int rand = Random.Range(0, 101);
+        print(rand);
         if(rand >= 0 && rand <= 90)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Normal grey tile
         }
         if(rand > 90 && rand <= 95)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Clean tile
+            gameObject.GetComponent<SpriteRenderer>().sprite = tiles[1]; // Clean tile
         }
         if(rand > 95 && rand <= 100)
         {
-            gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Rusted tile
+            gameObject.GetComponent<SpriteRenderer>().sprite = tiles[2]; // Rusted tile
         }
-        gameObject.GetComponent<SpriteRenderer>().sprite = tiles[rand];
     }
 }
