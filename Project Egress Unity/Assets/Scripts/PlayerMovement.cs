@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
+    [SerializeField] private PhysicsMaterial2D[] movementMaterials;
 
     // Ground detection
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
@@ -69,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         if (canJump)
         {
             coyoteTime = coyoteLenience; // reset as long as the player is on the ground
+            
         }
         else
         {
