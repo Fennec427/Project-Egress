@@ -1,3 +1,4 @@
+using System.Numerics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,7 +8,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnPlayer();
+        
     }
 
     // Update is called once per frame
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     }
     void SpawnPlayer()
     {
-        Instantiate(Player, Respawn.position, Quaternion.identity);
+    
+        Player.GetComponent<Rigidbody2D>().linearVelocity = UnityEngine.Vector2.zero;
+        Player.transform.position = Respawn.position;
     }
 }
