@@ -70,11 +70,12 @@ public class PlayerMovement : MonoBehaviour
         if (canJump)
         {
             coyoteTime = coyoteLenience; // reset as long as the player is on the ground
-            
+            GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[0];
         }
         else
         {
             coyoteTime -= Time.deltaTime; // reduce while in the air
+            GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
     }
