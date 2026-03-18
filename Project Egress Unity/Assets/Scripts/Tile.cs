@@ -8,7 +8,6 @@ public class Tile : MonoBehaviour
     void Start()
     {
         int rand = Random.Range(0, 101);
-        print(rand);
         if(rand >= 0 && rand <= 90)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Normal grey tile
