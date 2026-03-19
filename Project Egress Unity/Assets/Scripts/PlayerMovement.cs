@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
     [SerializeField] private float checkRadius = 0.07f; // Size of the detection circle
     [SerializeField] private LayerMask groundLayer; // Object layer for sensor to detect
+    private float noJumpCheck = 0f;
 
     private Rigidbody2D rb; // Used to set movement
 
@@ -56,18 +57,21 @@ public class PlayerMovement : MonoBehaviour
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0)))
         {
+            coyoteTime = 0f;
+            jumpBuffer = 0f;
+            GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+            noJumpCheck = 0.2f;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
         }
         else if (jump.WasPressedThisFrame()) // input buffer
         {
             jumpBuffer = jumpLenience;
         }
-
     }
 
     private void FixedUpdate()
     {
-        if (canJump)
+        if (canJump && noJumpCheck <= 0)
         {
             coyoteTime = coyoteLenience; // reset as long as the player is on the ground
             GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[0];
@@ -78,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
+        noJumpCheck -= Time.deltaTime;
     }
 
     // Show the detection area when selected in editor
