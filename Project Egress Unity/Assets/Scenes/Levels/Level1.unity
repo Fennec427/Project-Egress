@@ -516,26 +516,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: JohnEgress
       objectReference: {fileID: 0}
-    - target: {fileID: 6693784137870490343, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
-      propertyPath: orthographic size
-      value: 2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955392167424295895, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955392167424295895, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955392167424295895, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6955392167424295895, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
