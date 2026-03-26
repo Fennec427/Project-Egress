@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         if (jump.WasPressedThisFrame())
         {
             map.SetTile(new Vector3Int(1,1,1), toPlace);
+            map.SetTile(new Vector3Int(0,1,1), toPlace);
+            map.SetTile(new Vector3Int(-1,1,1), toPlace);
+            map.SetTile(new Vector3Int(-2,1,1), toPlace);
         }
     }
 
