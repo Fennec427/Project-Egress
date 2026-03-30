@@ -110,11 +110,4 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Death"))
-        {
-            Object.FindAnyObjectByType<GameManager>().PlayerDied();
-        }
-    }
 }
