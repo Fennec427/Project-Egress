@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 98360248048273179}
   - component: {fileID: 8633427074811567489}
   m_Layer: 3
-  m_Name: JohnEgress
+  m_Name: Dancing Egress
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
