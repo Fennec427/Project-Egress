@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: ba7b9c3bd1c8a3a43a5c3678f330ed50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7344492777226089485
+    second: FallingMetalBlockSpritesheet_0
+  - first:
+      213: 6287244105564773624
+    second: FallingMetalBlockSpritesheet_1
+  - first:
+      213: -2521929188469162112
+    second: FallingMetalBlockSpritesheet_2
+  - first:
+      213: 4172175654145853621
+    second: FallingMetalBlockSpritesheet_3
+  - first:
+      213: -6467816461808453865
+    second: FallingMetalBlockSpritesheet_4
+  - first:
+      213: -3352578587611076304
+    second: FallingMetalBlockSpritesheet_5
+  - first:
+      213: 3154047308154835480
+    second: FallingMetalBlockSpritesheet_6
+  - first:
+      213: -8886487221473239590
+    second: FallingMetalBlockSpritesheet_7
+  - first:
+      213: -1566712195998173486
+    second: FallingMetalBlockSpritesheet_8
+  - first:
+      213: -8462837953368510494
+    second: FallingMetalBlockSpritesheet_9
+  - first:
+      213: 536462657774459462
+    second: FallingMetalBlockSpritesheet_10
+  - first:
+      213: -7611314299914116086
+    second: FallingMetalBlockSpritesheet_11
+  - first:
+      213: -3851866102262244835
+    second: FallingMetalBlockSpritesheet_12
+  - first:
+      213: -2028826987079657286
+    second: FallingMetalBlockSpritesheet_13
+  - first:
+      213: -3927756690644573406
+    second: FallingMetalBlockSpritesheet_14
+  - first:
+      213: -910589628213022820
+    second: FallingMetalBlockSpritesheet_15
+  - first:
+      213: 6528328613963659841
+    second: FallingMetalBlockSpritesheet_16
+  - first:
+      213: -3530439828142331349
+    second: FallingMetalBlockSpritesheet_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 152
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb440e5bbe131a90800000000000000
+      internalID: -7344492777226089485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 148
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc5b58e337c04750800000000000000
+      internalID: 6287244105564773624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 144
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08f3b9cc3ce400dd0800000000000000
+      internalID: -2521929188469162112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 140
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b885edf6ab86e930800000000000000
+      internalID: 4172175654145853621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 104
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 717bb792233bd36a0800000000000000
+      internalID: -6467816461808453865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 100
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0396cdb898f3971d0800000000000000
+      internalID: -3352578587611076304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 95
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 812985fd05d65cb20800000000000000
+      internalID: 3154047308154835480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 95
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add1a0764fadca480800000000000000
+      internalID: -8886487221473239590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 63
+        width: 20
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6b14cfe8be14ae0800000000000000
+      internalID: -1566712195998173486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 63
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efa6cd28b5fd8a80800000000000000
+      internalID: -8462837953368510494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 63
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a98e7e1f5e17700800000000000000
+      internalID: 536462657774459462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 63
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04a4cf78fd2f5690800000000000000
+      internalID: -7611314299914116086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 40
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a5a44203c6b8ac0800000000000000
+      internalID: -3851866102262244835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 44
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8146cba9828d3e0800000000000000
+      internalID: -2028826987079657286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 48
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22367f9991ecd79c0800000000000000
+      internalID: -3927756690644573406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 36
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f2532ce8fec53f0800000000000000
+      internalID: -910589628213022820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 20
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14a725c2948499a50800000000000000
+      internalID: 6528328613963659841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FallingMetalBlockSpritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 24
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a6fae6eab510fc0800000000000000
+      internalID: -3530439828142331349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FallingMetalBlockSpritesheet_0: -7344492777226089485
+      FallingMetalBlockSpritesheet_1: 6287244105564773624
+      FallingMetalBlockSpritesheet_10: 536462657774459462
+      FallingMetalBlockSpritesheet_11: -7611314299914116086
+      FallingMetalBlockSpritesheet_12: -3851866102262244835
+      FallingMetalBlockSpritesheet_13: -2028826987079657286
+      FallingMetalBlockSpritesheet_14: -3927756690644573406
+      FallingMetalBlockSpritesheet_15: -910589628213022820
+      FallingMetalBlockSpritesheet_16: 6528328613963659841
+      FallingMetalBlockSpritesheet_17: -3530439828142331349
+      FallingMetalBlockSpritesheet_2: -2521929188469162112
+      FallingMetalBlockSpritesheet_3: 4172175654145853621
+      FallingMetalBlockSpritesheet_4: -6467816461808453865
+      FallingMetalBlockSpritesheet_5: -3352578587611076304
+      FallingMetalBlockSpritesheet_6: 3154047308154835480
+      FallingMetalBlockSpritesheet_7: -8886487221473239590
+      FallingMetalBlockSpritesheet_8: -1566712195998173486
+      FallingMetalBlockSpritesheet_9: -8462837953368510494
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
