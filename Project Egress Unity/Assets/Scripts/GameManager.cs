@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public Tilemap map;
     public TileBase toPlace;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void UpdateRespawnPoint(UnityEngine.Vector3 newPosition)
+    {
+        Respawn.position = newPosition;
+    }
+    
     void Start()
     {
         jump = InputSystem.actions.FindAction("Jump");
