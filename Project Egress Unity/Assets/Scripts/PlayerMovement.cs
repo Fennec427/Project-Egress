@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float noJumpCheck = 0f;
 
     private Rigidbody2D rb; // Used to set movement
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
         move.Enable();
         jump.Enable();
+        if(animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
 
     }
 
@@ -52,7 +57,18 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.8f, rb.linearVelocity.y);
         }
         
-
+        if(rb.linearVelocity.x>=0.2)
+        {
+            animator.SetTrigger("right");
+        }
+        else if(rb.linearVelocity.x <=-0.2)
+        {
+            animator.SetTrigger("left");
+        }
+        else
+        {
+            animator.SetTrigger("Proceed");
+        }
 
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0)))
