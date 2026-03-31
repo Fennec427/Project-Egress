@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
+    [SerializeField] private float slipperyness = 0.5f;
 
     // Ground detection
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
@@ -24,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private float noJumpCheck = 0f;
 
     private Rigidbody2D rb; // Used to set movement
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
         move.Enable();
         jump.Enable();
+        if(animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
 
     }
 
@@ -49,10 +55,21 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.8f, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
         }
         
-
+        if(rb.linearVelocity.x>=0.2)
+        {
+            animator.SetTrigger("right");
+        }
+        else if(rb.linearVelocity.x <=-0.2)
+        {
+            animator.SetTrigger("left");
+        }
+        else
+        {
+            animator.SetTrigger("Proceed");
+        }
 
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0)))
