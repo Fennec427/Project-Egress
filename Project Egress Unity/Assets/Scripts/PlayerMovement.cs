@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
+    [SerializeField] private float slipperyness = 0.5f;
 
     // Ground detection
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.8f, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
         }
         
         if(rb.linearVelocity.x>=0.2)
