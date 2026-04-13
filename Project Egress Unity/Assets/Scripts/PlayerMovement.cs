@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,22 +9,29 @@ public class PlayerMovement : MonoBehaviour
     private InputAction jump;
 
     // Movement stats
+    [Header("Movement Stats")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
+    private Rigidbody2D rb; // Used to set movement
     private bool canJump;
     private float coyoteTime = 0f; // default value at 0 to prevent players from possibly jumping immediately upon level load
     [SerializeField] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
+    [SerializeField] private float slipperyness = 0.5f;
 
     // Ground detection
+    [Header("Ground Checking")]
     [SerializeField] private Transform groundCheck; // The "sensor" object at your feet
     [SerializeField] private float checkRadius = 0.07f; // Size of the detection circle
     [SerializeField] private LayerMask groundLayer; // Object layer for sensor to detect
     private float noJumpCheck = 0f;
 
-    private Rigidbody2D rb; // Used to set movement
+    [Header("Misc")]
+    [SerializeField] private bool enableCoyote = true;
+    [SerializeField] private bool enableJumpBuffer = true;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
         move.Enable();
         jump.Enable();
+        if(animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
 
     }
 
@@ -49,13 +61,24 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * 0.8f, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
         }
         
-
+        if(rb.linearVelocity.x>=0.2)
+        {
+            animator.SetTrigger("right");
+        }
+        else if(rb.linearVelocity.x <=-0.2)
+        {
+            animator.SetTrigger("left");
+        }
+        else
+        {
+            animator.SetTrigger("Proceed");
+        }
 
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
-        if ((jump.WasPressedThisFrame() || jumpBuffer > 0f) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0)))
+        if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0 && enableCoyote)))
         {
             coyoteTime = 0f;
             jumpBuffer = 0f;
