@@ -134,8 +134,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8178542230228557163}
   - component: {fileID: 4905055939193600713}
-  - component: {fileID: 782166080533556562}
   - component: {fileID: 3447691721903166938}
+  - component: {fileID: 5411165050393884046}
+  - component: {fileID: 2640075931278122834}
+  - component: {fileID: 3100283361550532745}
   m_Layer: 6
   m_Name: Tile
   m_TagString: Untagged
@@ -221,8 +223,106 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &782166080533556562
+--- !u!114 &3447691721903166938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464665992562556968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e894e394d8a4fa4f9621b64315febc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Tile
+  tiles:
+  - {fileID: 7515190199615024738, guid: 9ec613b47e76871468bfbd9f90335125, type: 3}
+  - {fileID: 1405384375756304888, guid: faccb08b49575b04e9970aa8d3f7aef6, type: 3}
+  - {fileID: 2976750222226582865, guid: e1fc9b8ecba1c3c45a77d34ce1e27882, type: 3}
+  detectors:
+  - {fileID: 5367917212252589251}
+  - {fileID: 3626284835766187799}
+  - {fileID: 2305399683281259221}
+  - {fileID: 1117374428535322059}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  extendAmt: 0.1
+--- !u!61 &5411165050393884046
 BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464665992562556968}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 1
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.32, y: 0.32}
+  m_EdgeRadius: 0
+--- !u!50 &2640075931278122834
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464665992562556968}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &3100283361550532745
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -256,38 +356,27 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_GeometryType: 0
+  m_GenerationType: 0
   m_EdgeRadius: 0
---- !u!114 &3447691721903166938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7464665992562556968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e894e394d8a4fa4f9621b64315febc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Tile
-  tiles:
-  - {fileID: 7515190199615024738, guid: 9ec613b47e76871468bfbd9f90335125, type: 3}
-  - {fileID: 1405384375756304888, guid: faccb08b49575b04e9970aa8d3f7aef6, type: 3}
-  - {fileID: 2976750222226582865, guid: e1fc9b8ecba1c3c45a77d34ce1e27882, type: 3}
-  detectors:
-  - {fileID: 5367917212252589251}
-  - {fileID: 3626284835766187799}
-  - {fileID: 2305399683281259221}
-  - {fileID: 1117374428535322059}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  m_ColliderPaths:
+  - m_Collider: {fileID: 5411165050393884046}
+    m_ColliderPaths:
+    - - X: 7999999
+        Y: 7999999
+      - X: -7999999
+        Y: 7999999
+      - X: -7999999
+        Y: -7999999
+      - X: 7999999
+        Y: -7999999
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.7999706, y: -0.7999999}
+      - {x: 0.7999706, y: 0.7999999}
+      - {x: -0.7999999, y: 0.7999706}
+      - {x: -0.7999706, y: -0.7999999}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 7464665992562556968}

@@ -28,35 +28,43 @@ public class Tile : MonoBehaviour
 
         // Extend hitbox to overlap on other tiles
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
-        for(int i = 0; i < detectors.Length; i++)
+        /*
+        Collider2D[] detected;
+        foreach(var detector in detectors)
         {
-            if(!Physics2D.OverlapCircle(detectors[i].transform.position, 0.07f, groundLayer))
+            detected = Physics2D.OverlapCircleAll(detector.transform.position, 0.07f, groundLayer); // this may eat up all computer memory when there are a lot of tiles at once
+            foreach(var detectedObject in detected)
             {
-                print("false");
+                if(detectedObject == collider) // check if the detector found it's own tile
+                {
+                    continue;
+                }
+                else
+                {
+                    if(detector.name == "12") // top
+                    {
+                        collider.size = new Vector2(collider.size.x, collider.size.y + extendAmt);
+                        collider.offset = new Vector2(collider.offset.x, collider.offset.y + (extendAmt / 2f));
+                    }
+                    else if(detector.name == "3") // right
+                    {
+                        collider.size = new Vector2(collider.size.x + extendAmt, collider.size.y);
+                        collider.offset = new Vector2(collider.offset.x + (extendAmt / 2f), collider.offset.y);
+                    }
+                    else if(detector.name == "6") // bottom
+                    {
+                        collider.size = new Vector2(collider.size.x, collider.size.y + extendAmt);
+                        collider.offset = new Vector2(collider.offset.x, collider.offset.y - (extendAmt / 2f));
+                    }
+                    else if(detector.name == "9") // left
+                    {
+                        collider.size = new Vector2(collider.size.x + extendAmt, collider.size.y);
+                        collider.offset = new Vector2(collider.offset.x - (extendAmt / 2f), collider.offset.y);
+                    }
+                }
             }
-            if(Physics2D.OverlapCircle(detectors[i].transform.position, 0.07f, groundLayer)) // if another tile is detected
-            {
-                if(i == 0) // top
-                {
-                    collider.size = new Vector2(collider.size.x, collider.size.y + extendAmt);
-                    collider.offset = new Vector2(collider.offset.x, collider.offset.y + (extendAmt / 2f));
-                }
-                else if(i == 1) // right
-                {
-                    collider.size = new Vector2(collider.size.x + extendAmt, collider.size.y);
-                    collider.offset = new Vector2(collider.offset.x + (extendAmt / 2f), collider.offset.y);
-                }
-                else if(i == 2) // bottom
-                {
-                    collider.size = new Vector2(collider.size.x, collider.size.y + extendAmt);
-                    collider.offset = new Vector2(collider.offset.x, collider.offset.y - (extendAmt / 2f));
-                }
-                else if(i == 3) // left
-                {
-                    collider.size = new Vector2(collider.size.x + extendAmt, collider.size.y);
-                    collider.offset = new Vector2(collider.offset.x - (extendAmt / 2f), collider.offset.y);
-                }
-            }
+            detected = null; // reset "detected" for next iteration
         }
+        */
     }
 }
