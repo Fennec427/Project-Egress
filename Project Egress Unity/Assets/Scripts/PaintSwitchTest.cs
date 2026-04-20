@@ -6,9 +6,13 @@ public class PaintSwitchTest : MonoBehaviour
     public bool canpaint = true;
     void Update()
     {
-        if (Keyboard.current != null && Keyboard.current.eKey.IsPressed())
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            Debug.Log("I AM THE PAINT SWITCH FUNCTION RAHHHHHHHHH");
+            Time.timeScale = 0.5f;
+        }
+        else if (Keyboard.current.eKey.wasReleasedThisFrame)
+        {
+            Time.timeScale = 1f;
         }
     }
 }
