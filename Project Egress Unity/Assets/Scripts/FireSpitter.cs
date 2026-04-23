@@ -12,6 +12,9 @@ public class FireSpitter : MonoBehaviour
     [SerializeField] private float deactivateWait = 1f;
     public Animator animator;
 
+    private SpriteRenderer sr;
+    private BoxCollider2D col;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +23,12 @@ public class FireSpitter : MonoBehaviour
         warnTime = 0f;
         activeTime = 0f;
         deactivateTime = 0f;
+    }
+    
+    void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        col = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -37,6 +46,7 @@ public class FireSpitter : MonoBehaviour
             activeTime = activeWait;
             animator.SetInteger("currentState", 2);
             //start kill
+            gameObject.tag = "Death";
         }
         else if(activeTime <= 0f && animator.GetInteger("currentState") == 2)
         {
@@ -59,5 +69,13 @@ public class FireSpitter : MonoBehaviour
         warnTime -= Time.deltaTime;
         activeTime -= Time.deltaTime;
         deactivateTime -= Time.deltaTime;
+    }
+
+    public void setIdle()
+    {
+        animator.SetTrigger("idle");
+        idleTime = idleWait;
+        animator.SetInteger("currentState", 0);
+        gameObject.tag = "Untagged";
     }
 }
