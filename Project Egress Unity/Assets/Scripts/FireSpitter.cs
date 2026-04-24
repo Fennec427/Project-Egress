@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FireSpitter : MonoBehaviour
@@ -13,7 +14,8 @@ public class FireSpitter : MonoBehaviour
     public Animator animator;
 
     private SpriteRenderer sr;
-    private BoxCollider2D col;
+    private PolygonCollider2D col;
+    private Sprite oldSprite;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,7 +30,7 @@ public class FireSpitter : MonoBehaviour
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>();
+        col = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,17 @@ public class FireSpitter : MonoBehaviour
             idleTime = idleWait;
             animator.SetInteger("currentState", 0);
         }
+        if(sr.sprite != oldSprite)
+        {
+            //col.pathCount = 0;
+            //col.pathCount = sr.sprite.GetPhysicsShapeCount();
+            col.CreateFromSprite(sr.sprite);
+            oldSprite = sr.sprite;
+        }
+        if(gameObject.tag == "Death")
+        {
+            Physics2D.OverlapCapsule((Vector2)gameObject.transform.position, new Vector2(0.5f, 0.1f), 0, 0);
+        }
     }
 
     void FixedUpdate()
@@ -71,11 +84,13 @@ public class FireSpitter : MonoBehaviour
         deactivateTime -= Time.deltaTime;
     }
 
-    public void setIdle()
+    public void StopKill()
     {
-        animator.SetTrigger("idle");
-        idleTime = idleWait;
-        animator.SetInteger("currentState", 0);
         gameObject.tag = "Untagged";
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(gameObject.transform.position, new Vector3(0.5f, 0.1f, 0f));
     }
 }
