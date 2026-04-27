@@ -12,6 +12,8 @@ public class FireSpitter : MonoBehaviour
     private float deactivateTime;
     [SerializeField] private float deactivateWait = 1f;
     public Animator animator;
+    [SerializeField] private bool checkedForPerviousIntersect = false;
+    [SerializeField] private LayerMask playerLayer;
 
     private SpriteRenderer sr;
     private PolygonCollider2D col;
@@ -49,6 +51,7 @@ public class FireSpitter : MonoBehaviour
             animator.SetInteger("currentState", 2);
             //start kill
             gameObject.tag = "Death";
+            checkedForPerviousIntersect = false;
         }
         else if(activeTime <= 0f && animator.GetInteger("currentState") == 2)
         {
@@ -65,14 +68,20 @@ public class FireSpitter : MonoBehaviour
         }
         if(sr.sprite != oldSprite)
         {
-            //col.pathCount = 0;
-            //col.pathCount = sr.sprite.GetPhysicsShapeCount();
             col.CreateFromSprite(sr.sprite);
             oldSprite = sr.sprite;
         }
-        if(gameObject.tag == "Death")
-        {
-            Physics2D.OverlapCapsule((Vector2)gameObject.transform.position, new Vector2(0.5f, 0.1f), 0, 0);
+        if(!checkedForPerviousIntersect){
+            if(gameObject.tag == "Death")
+            {
+                //Physics2D.OverlapCapsule((Vector2)gameObject.transform.position, new Vector2(0.1f, 0.2f), 0, 0, playerLayer)
+                //Physics2D.OverlapBox((Vector2)gameObject.transform.position, new Vector2(0.1f, 0.2f), 0, playerLayer)
+                if(Physics2D.OverlapBox((Vector2)gameObject.transform.position, new Vector2(0.1f, 0.2f), 0, playerLayer))
+                {
+                    Object.FindAnyObjectByType<GameManager>().PlayerDied();
+                }
+                checkedForPerviousIntersect = true;
+            }
         }
     }
 
@@ -91,6 +100,6 @@ public class FireSpitter : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawCube(gameObject.transform.position, new Vector3(0.5f, 0.1f, 0f));
+        Gizmos.DrawCube(gameObject.transform.position, new Vector3(0.1f, 0.2f, 0f));
     }
 }

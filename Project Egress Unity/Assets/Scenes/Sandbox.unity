@@ -1464,6 +1464,10 @@ MonoBehaviour:
   activeWait: 3
   deactivateWait: 1
   animator: {fileID: 2004377070}
+  checkedForPerviousIntersect: 0
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!212 &2004377069
 SpriteRenderer:
   serializedVersion: 2
