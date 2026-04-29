@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8352510269406002376}
   - component: {fileID: 2102596113020280156}
   - component: {fileID: 2425809811514878575}
+  - component: {fileID: 7734543882383325598}
   m_Layer: 0
   m_Name: Teleporter_Blue
   m_TagString: Untagged
@@ -161,3 +162,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7734543882383325598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420523346391605714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371c42aa9534c414290bb004bbdc90c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Teleporter
+  destination: {fileID: 0}
+  teleportDelay: 1
+  topDetectionThreshold: 0.5

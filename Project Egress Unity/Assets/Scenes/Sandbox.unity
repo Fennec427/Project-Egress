@@ -882,6 +882,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2194646829730377822, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
   m_PrefabInstance: {fileID: 2010637647}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1533282009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2948226941913629859, guid: f6e0b062398676748a8b877aeb832432, type: 3}
+  m_PrefabInstance: {fileID: 4339669839244735370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371c42aa9534c414290bb004bbdc90c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Teleporter
 --- !u!1001 &1580582772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -939,6 +950,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
+--- !u!114 &1824530161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7734543882383325598, guid: 4ff472632600afc4592a6ebd32a894a1, type: 3}
+  m_PrefabInstance: {fileID: 7973897116428493588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371c42aa9534c414290bb004bbdc90c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Teleporter
 --- !u!1001 &1839910288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1313,6 +1335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2948226941913629859, guid: f6e0b062398676748a8b877aeb832432, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 1824530161}
     - target: {fileID: 2987875513762894516, guid: f6e0b062398676748a8b877aeb832432, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1410,6 +1436,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7734543882383325598, guid: 4ff472632600afc4592a6ebd32a894a1, type: 3}
+      propertyPath: destination
+      value: 
+      objectReference: {fileID: 1533282009}
     - target: {fileID: 8420523346391605714, guid: 4ff472632600afc4592a6ebd32a894a1, type: 3}
       propertyPath: m_Name
       value: Teleporter_Blue

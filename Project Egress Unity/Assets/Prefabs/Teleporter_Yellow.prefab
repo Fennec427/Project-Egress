@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5747552213463805577}
   - component: {fileID: 6513435974016261896}
   - component: {fileID: 2877571916242028674}
+  - component: {fileID: 2948226941913629859}
   m_Layer: 0
   m_Name: Teleporter_Yellow
   m_TagString: Untagged
@@ -161,3 +162,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2948226941913629859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4648063344952714549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371c42aa9534c414290bb004bbdc90c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Teleporter
+  destination: {fileID: 0}
+  teleportDelay: 1
+  topDetectionThreshold: 0.5
