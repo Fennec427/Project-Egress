@@ -100,3 +100,4 @@ InitTestScene*.unity*
 
 # Auto-generated recovery scenes
 /[Aa]ssets/_[Rr]ecovery/
+/[Aa]ssets/_[Rr]ecovery.meta
