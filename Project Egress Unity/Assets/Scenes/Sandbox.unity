@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 1824530163}
   - component: {fileID: 1824530161}
   - component: {fileID: 1824530166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Teleporter_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 2005978496544258824}
   - component: {fileID: 1500734903067031337}
   - component: {fileID: 8987115874716686016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Teleporter_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
