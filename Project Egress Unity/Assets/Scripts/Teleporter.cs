@@ -35,10 +35,12 @@ public class Teleporter : MonoBehaviour
             lastTeleportTime = Time.time; 
              
             //Spawn slightly above after teleporting to avoid getting stuck 
-            Vector3 spawnOffset = new Vector3(0, 1.2f, 0); 
+            Vector3 spawnOffset = new Vector3(0, 0.6f, 0); //0.6f now
             player.transform.position = destination.transform.position + spawnOffset; 
 
-            player.GetComponent<Rigidbody2D>().linearVelocityY = -player.GetComponent<Rigidbody2D>().linearVelocityY;
+            // player.GetComponent<Rigidbody2D>().linearVelocityY = -player.GetComponent<Rigidbody2D>().linearVelocityY; //commented out old thing
+            Rigidbody2D rb = player.GetComponent<Rigidbody2D>(); //new line
+            rb.linearVelocity = Vector2.zero; //new line
         }
     } 
 
