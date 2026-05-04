@@ -36,6 +36,7 @@ public class Teleporter : MonoBehaviour
              
             //Spawn slightly above after teleporting to avoid getting stuck 
             Vector3 spawnOffset = new Vector3(0, 0.6f, 0); //0.6f now
+            player.GetComponent<PlayerMovement>().DisableJumps(0.1f, true);
             player.transform.position = destination.transform.position + spawnOffset; 
 
             // player.GetComponent<Rigidbody2D>().linearVelocityY = -player.GetComponent<Rigidbody2D>().linearVelocityY; //commented out old thing

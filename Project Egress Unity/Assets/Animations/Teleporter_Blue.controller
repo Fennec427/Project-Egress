@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Teleporter_Controller
+  m_Name: Teleporter_Blue
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 53455ba4fe651cb4d89e3c35f6847ffb, type: 2}
+  m_Motion: {fileID: 7400000, guid: a1213070d3eea794e8b56fa69ff8168b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
