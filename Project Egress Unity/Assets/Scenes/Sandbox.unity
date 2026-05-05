@@ -1866,12 +1866,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 32767
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2538329587261832645, guid: 94422833dbf40be4eab62df9e96f4483, type: 3}
+  m_Sprite: {fileID: 28886538073113963, guid: 0b3f5f7b292b5c6479edcd3936124d71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.3, y: 1.29}
+  m_Size: {x: 1.29, y: 1.29}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1945,9 +1945,9 @@ MonoBehaviour:
   canpaint: 1
   centerPoint: {fileID: 0}
   sprites:
-  - {fileID: 5580031937438516169, guid: 94422833dbf40be4eab62df9e96f4483, type: 3}
-  - {fileID: -3189731507225292930, guid: 94422833dbf40be4eab62df9e96f4483, type: 3}
-  - {fileID: -6289054075722674754, guid: 94422833dbf40be4eab62df9e96f4483, type: 3}
+  - {fileID: -4969858355624753283, guid: 0b3f5f7b292b5c6479edcd3936124d71, type: 3}
+  - {fileID: 7556358062655894823, guid: 0b3f5f7b292b5c6479edcd3936124d71, type: 3}
+  - {fileID: -3437325237320901085, guid: 0b3f5f7b292b5c6479edcd3936124d71, type: 3}
 --- !u!20 &7482402534575261911
 Camera:
   m_ObjectHideFlags: 0
