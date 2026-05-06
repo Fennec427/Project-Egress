@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PaintSwitchTest : MonoBehaviour
+public class PaintSwitch2 : MonoBehaviour
 
 {
     public bool canpaint = true;
