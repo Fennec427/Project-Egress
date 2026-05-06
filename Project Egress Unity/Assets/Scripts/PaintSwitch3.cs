@@ -25,17 +25,18 @@ public class PaintSwitch3 : MonoBehaviour
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
             Vector2 relativePos = centerPoint.transform.InverseTransformPoint(worldMousePos);
 
-            if(relativePos.y <= 40)
+            print(relativePos.x + ", " + relativePos.y);
+            if(relativePos.y >= 0.2f)
+            {
+                GetComponent<SpriteRenderer>().sprite = sprites[0];
+            }
+            else if(relativePos.x >= 0f)
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[1];
             }
-            else if(relativePos.x<=0)
-            {
-                GetComponent<SpriteRenderer>().sprite = sprites[2];
-            }
             else
             {
-                GetComponent<SpriteRenderer>().sprite = sprites[3];
+                GetComponent<SpriteRenderer>().sprite = sprites[2];
             }
         }
     }
