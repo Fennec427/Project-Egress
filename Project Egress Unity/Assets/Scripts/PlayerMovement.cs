@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
+    private bool speedBoost = false;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -63,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 canJump = true;
+            }
+            if (overlap.gameObject.GetComponent<Tile>().tileName == "red")
+            {
+                moveSpeed = 10f;
+                speedBoost = true;
             }
         }
         else
@@ -122,6 +128,17 @@ public class PlayerMovement : MonoBehaviour
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
+        if (!speedBoost)
+        {
+            if (canJump && moveSpeed < 5f)
+            {
+                moveSpeed -= 0.1f;
+                if (moveSpeed < 5f)
+                {
+                    moveSpeed = 5f;
+                }
+            }
+        }
     }
 
     // Show the detection area when selected in editor

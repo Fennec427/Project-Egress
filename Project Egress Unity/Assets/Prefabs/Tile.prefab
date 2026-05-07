@@ -155,3 +155,5 @@ MonoBehaviour:
   - {fileID: 7515190199615024738, guid: 9ec613b47e76871468bfbd9f90335125, type: 3}
   - {fileID: 1405384375756304888, guid: faccb08b49575b04e9970aa8d3f7aef6, type: 3}
   - {fileID: 2976750222226582865, guid: e1fc9b8ecba1c3c45a77d34ce1e27882, type: 3}
+  tileName: tile
+  normal: 1
