@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        /*
         if (jump.WasPressedThisFrame())
         {
             map.SetTile(new Vector3Int(1,1,1), toPlace);
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
             map.SetTile(new Vector3Int(-1,1,1), toPlace);
             map.SetTile(new Vector3Int(-2,1,1), toPlace);
         }
+        */
     }
 
     // Update is called once per frame
