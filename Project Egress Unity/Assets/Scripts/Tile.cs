@@ -6,6 +6,8 @@ public class Tile : MonoBehaviour
     public Sprite[] tiles;
     public string tileName;
     [SerializeField] private bool normal;
+    [SerializeField] private float bounceForce;
+    public float BounceForce => bounceForce;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -65,15 +65,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 canJump = true;
             }
-            if (overlap.gameObject.GetComponent<Tile>().tileName == "red")
+            if (overlap.gameObject.GetComponent<Tile>().tileName == "red") // speed tile
             {
                 moveSpeed = 10f;
                 speedBoost = true;
+            }
+            else
+            {
+                speedBoost = false;
+                if(overlap.gameObject.GetComponent<Tile>().tileName == "orange")
+                {
+                    rb.linearVelocityY = Mathf.Abs(rb.linearVelocityY) + overlap.gameObject.GetComponent<Tile>().BounceForce;
+                }
             }
         }
         else
         {
             canJump = false;
+            speedBoost = false;
         }
 
         Vector2 moveValue = move.ReadValue<Vector2>();
@@ -130,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         noJumpCheck -= Time.deltaTime;
         if (!speedBoost)
         {
-            if (canJump && moveSpeed < 5f)
+            if (canJump && moveSpeed > 5f)
             {
                 moveSpeed -= 0.1f;
                 if (moveSpeed < 5f)
