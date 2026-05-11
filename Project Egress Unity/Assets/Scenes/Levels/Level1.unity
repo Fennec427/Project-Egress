@@ -14325,7 +14325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &228288861
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18522,7 +18521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &295821480
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22519,7 +22517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &349642189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35341,7 +35338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &500870176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38029,7 +38025,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &542912553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -38171,7 +38166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &543107211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42041,7 +42035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &591684000
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42870,7 +42863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &607027932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44882,7 +44874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &634118652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45987,7 +45978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &649030702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -47487,7 +47477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &662828612
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56137,7 +56126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &788150668
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -58001,7 +57989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &807107396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -59558,7 +59545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &833159274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60095,7 +60081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &839791319
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -61742,7 +61727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &860507281
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -64952,7 +64936,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &899029792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -67726,7 +67709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &940628204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69866,7 +69848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &975763772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71175,7 +71156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &997584466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71862,7 +71842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1005993798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76987,7 +76966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1065364488
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77870,7 +77848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1074513025
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78377,7 +78354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1080882108
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80151,7 +80127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1103345471
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -83991,7 +83966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1162731390
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85575,7 +85549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1175975437
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86147,7 +86120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1182443889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86637,7 +86609,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1186513015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -86905,7 +86876,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1188969052
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90205,7 +90175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1234385943
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91600,7 +91569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1253402298
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96103,7 +96071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1316989071
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96637,7 +96604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1320544580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97315,7 +97281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1324482129
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97497,6 +97462,7 @@ GameObject:
   - component: {fileID: 1325290712}
   - component: {fileID: 1325290711}
   - component: {fileID: 1325290710}
+  - component: {fileID: 1325290713}
   m_Layer: 0
   m_Name: FinishFlag_0
   m_TagString: Untagged
@@ -97600,6 +97566,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325290713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325290709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ee9c957d0908c4ca2cc3f1cd404935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinishFlag
+  nextSceneName: Sandbox
 --- !u!1001 &1326490917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108482,7 +108461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1504376638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108955,7 +108933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1507789850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113734,7 +113711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1569946911
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -121005,7 +120981,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1666606072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -122994,7 +122969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1689537035
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124696,7 +124670,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1717239407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -125663,7 +125636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1731667663
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -126068,7 +126040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1736569648
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128278,7 +128249,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1769729217
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128915,7 +128885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1775807325
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130096,7 +130065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1785310338
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131742,7 +131710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1800971504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132088,7 +132055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1805979123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133892,7 +133858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1838638811
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -135542,7 +135507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1861016635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138015,7 +137979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1893401978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138152,7 +138115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1893435103
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138503,7 +138465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1896327280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -139400,7 +139361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1910705607
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142474,7 +142434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1952667509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144577,7 +144536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &1991650825
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -145442,7 +145400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &2012459073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147525,7 +147482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &2035498340
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149081,7 +149037,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &2060627797
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -152110,7 +152065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79aeedd0eea9c7d41b65a853ef6ea624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BuzzsawRotation
-  speed: -350
 --- !u!61 &2084464769
 BoxCollider2D:
   m_ObjectHideFlags: 0
