@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class FinishFlag : MonoBehaviour
 {
-    private Animator anim; 
-      
+    private Animator anim;   
     [SerializeField] private string nextSceneName; //A box in the inspector should allow a specific scene name to be typed.
      
     void Start()
@@ -19,8 +18,7 @@ public class FinishFlag : MonoBehaviour
         }
     } 
 
-    public void LoadNextLevel() //"Custom function" that acts as a way to allow the animation to trigger. Anything could be next to the parenthesis.
-    {
+    public void LoadNextLevel() { //"Custom function" that acts as a way to allow the animation to trigger. Anything could be next to the parenthesis.   
         SceneManager.LoadScene(nextSceneName); //Uses the scne name from the inspector to actually teleport you.
     } 
 }
