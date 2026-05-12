@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
     private bool speedBoost = false;
+    [SerializeField] private float maxYV = 10f;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -73,10 +74,12 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 speedBoost = false;
+                /*
                 if(overlap.gameObject.GetComponent<Tile>().tileName == "orange")
                 {
                     rb.linearVelocityY = Mathf.Abs(rb.linearVelocityY) + overlap.gameObject.GetComponent<Tile>().BounceForce;
                 }
+                */
             }
         }
         else
@@ -174,6 +177,22 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTime = -1;
             jumpBuffer = -1;
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent<Tile>(out Tile tile))
+        {
+            if(tile.tileName == "orange")
+            {
+                float yVelocity = Mathf.Abs(rb.linearVelocityY) + tile.BounceForce; // TODO: fix 0 + tile.BounceForce
+                if(yVelocity >= maxYV)
+                {
+                    yVelocity = maxYV;
+                }
+                GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+                rb.linearVelocityY = yVelocity;
+            }
         }
     }
 }
