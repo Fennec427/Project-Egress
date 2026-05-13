@@ -9,15 +9,18 @@ public class PaintSwitch2 : MonoBehaviour
     [SerializeField] Sprite[] sprites;
     void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Time.timeScale != 0f)
         {
-            Time.timeScale = 0.5f;
-            GetComponent<SpriteRenderer>().enabled = true;        
-        }
-        if (Keyboard.current.eKey.wasReleasedThisFrame)
-        {
-            Time.timeScale = 1f;
-            GetComponent<SpriteRenderer>().enabled = false; 
+            if (Keyboard.current.eKey.wasPressedThisFrame)
+            {
+                Time.timeScale = 0.5f;
+                GetComponent<SpriteRenderer>().enabled = true;        
+            }
+            if (Keyboard.current.eKey.wasReleasedThisFrame)
+            {
+                Time.timeScale = 1f;
+                GetComponent<SpriteRenderer>().enabled = false; 
+            }
         }
         if (Keyboard.current.eKey.isPressed)
         {
