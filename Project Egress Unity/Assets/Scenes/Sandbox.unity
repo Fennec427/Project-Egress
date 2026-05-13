@@ -153,7 +153,9 @@ MonoBehaviour:
   tiles: []
   tileName: orange
   normal: 0
+  speedBoost: 0
   bounceForce: 5
+  maxBounceForce: 10
 --- !u!61 &109173450
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -456,7 +458,9 @@ MonoBehaviour:
   tiles: []
   tileName: red
   normal: 0
+  speedBoost: 10
   bounceForce: 0
+  maxBounceForce: 10
 --- !u!61 &770168327
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,13 +1,23 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 
 public class Tile : MonoBehaviour
 {
-    public Sprite[] tiles;
-    public string tileName;
-    [SerializeField] private bool normal;
-    [SerializeField] private float bounceForce = 3;
+    [Tooltip("DO NOT CHANGE, list of sprites to randomize through")] public Sprite[] tiles;
+    [Tooltip("Important for special tiles")] public string tileName;
+    [SerializeField] [Tooltip("Checkmark this if this tile does not apply special effects")] private bool normal;
+
+    [Header("Red Tile Stats")]
+    [SerializeField] [Tooltip("Sets the new max speed of the player after they touch the tile")] private float speedBoost = 10f;
+    public float SpeedBoost => speedBoost;
+
+    [Header("Orange Tile Stats")]
+    [SerializeField] [Tooltip("How much force is added to the player after they hit this tile")] private float bounceForce = 3;
     public float BounceForce => bounceForce;
+    [SerializeField] [Tooltip("The max Y force the player can have after Bounce Force is applied")] private float maxBounceForce = 10f;
+    public float MaxBounceForce => maxBounceForce;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
