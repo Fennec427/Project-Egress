@@ -1377,11 +1377,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 358823932828984919, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.5
+      value: -4.5
       objectReference: {fileID: 0}
     - target: {fileID: 358823932828984919, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 358823932828984919, guid: 3c1816cb42cfbf84cae7afb8a9276945, type: 3}
       propertyPath: m_LocalPosition.z
@@ -97561,7 +97561,7 @@ Transform:
   m_GameObject: {fileID: 1325290709}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43, y: -8, z: 0}
+  m_LocalPosition: {x: 43, y: -8.75, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97580,6 +97580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishFlag
   nextSceneName: Sandbox
+  delayTime: 4
 --- !u!61 &1325290714
 BoxCollider2D:
   m_ObjectHideFlags: 0
