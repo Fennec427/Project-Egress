@@ -97465,7 +97465,7 @@ GameObject:
   - component: {fileID: 1325290713}
   - component: {fileID: 1325290714}
   m_Layer: 0
-  m_Name: FinishFlag_0
+  m_Name: FinishFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
