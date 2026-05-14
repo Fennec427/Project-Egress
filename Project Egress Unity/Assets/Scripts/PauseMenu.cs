@@ -1,26 +1,38 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject Pauseui;
-    private bool cont = false;
-    
-    public void Pause()
+    public GameObject pauseMenuUI;
+    private bool isPaused = false;
+
+    void Update()
     {
-        if(Keyboard.current.escapeKey.wasPressedThisFrame)
-        Pauseui.SetActive(true);
-        Time.timeScale = 0;
+        if (Keyboard.current == null) return;
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (isPaused) Resume();
+            else Pause();
+        }
     }
 
-        public void ContinueButton() 
+    public void Resume()
     {
-        cont = true;
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
-    public void Continue()
+
+    void Pause()
     {
-        if(Keyboard.current.escapeKey.wasPressedThisFrame || cont == true)
-        Pauseui.SetActive(false);
-        Time.timeScale = 1;
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+    }
+        public void ReturnMenu() 
+    {
+        SceneManager.LoadSceneAsync("Menu_Test");  
     }
 }
