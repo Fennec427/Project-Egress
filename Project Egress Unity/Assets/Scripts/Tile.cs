@@ -7,8 +7,8 @@ public class Tile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Randomization of sprites
         int rand = Random.Range(0, 101);
-        print(rand);
         if(rand >= 0 && rand <= 90)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Normal grey tile

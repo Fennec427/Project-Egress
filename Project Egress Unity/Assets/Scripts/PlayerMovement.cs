@@ -52,7 +52,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        canJump = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer); // Update canJump by checking if sensor is touching the groundLayer
+        //canJump = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer); // Update canJump by checking if sensor is touching the groundLayer
+        Collider2D overlap = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        if (overlap != null)
+        {
+            if (overlap.isTrigger)
+            {
+                canJump = false;
+                Collider2D[] allColls = overlap.gameObject.GetComponents<Collider2D>();
+                foreach (var item in allColls)
+                {
+                    if (item.isTrigger)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        canJump = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                canJump = true;
+            }
+        }
+        else
+        {
+            canJump = false;
+        }
 
         Vector2 moveValue = move.ReadValue<Vector2>();
         if(moveValue.x != 0)
@@ -122,6 +151,16 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Death"))
         {
             Object.FindAnyObjectByType<GameManager>().PlayerDied();
+        }
+    }
+    
+    public void DisableJumps(float time = 0.2f, bool resetCoyoteJumpBuffer = false)
+    {
+        noJumpCheck = time;
+        if (resetCoyoteJumpBuffer)
+        {
+            coyoteTime = -1;
+            jumpBuffer = -1;
         }
     }
 }

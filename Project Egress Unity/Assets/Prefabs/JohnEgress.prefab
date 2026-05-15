@@ -281,7 +281,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &98360248048273179
 CapsuleCollider2D:
@@ -339,11 +339,15 @@ MonoBehaviour:
   movementMaterials:
   - {fileID: 0}
   - {fileID: 6200000, guid: 10eb594949a4c0d4f989a362de1de7a6, type: 2}
+  slipperyness: 0.5
   groundCheck: {fileID: 6463765341409228559}
   checkRadius: 0.07
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  enableCoyote: 1
+  enableJumpBuffer: 1
+  animator: {fileID: 0}
 --- !u!1 &7636883448222090188
 GameObject:
   m_ObjectHideFlags: 0
