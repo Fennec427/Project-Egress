@@ -60,6 +60,19 @@ public class PlayerMovement : MonoBehaviour
             if (overlap.isTrigger)
             {
                 canJump = false;
+                Collider2D[] allColls = overlap.gameObject.GetComponents<Collider2D>();
+                foreach (var item in allColls)
+                {
+                    if (item.isTrigger)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        canJump = true;
+                        break;
+                    }
+                }
             }
             else
             {
