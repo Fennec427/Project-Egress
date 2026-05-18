@@ -202,6 +202,40 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
                 rb.linearVelocityY = yVelocity;
             }
+            else if (tile.tileName == "green")
+            {
+                //rb.gravityScale = 0;
+                //print(transform.InverseTransformPoint(collision.transform.position));
+                //print(collision.GetContact(0).normal);
+                Vector2 collisionDirection = collision.GetContact(0).normal;
+
+                if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
+                {
+                    if(collisionDirection.x > 0)
+                    {
+                        //collided right, rotate z to -90 deg
+                    }
+                    else
+                    {
+                        //collided left, rotate z to 90 deg
+                    }
+                }
+                else
+                {
+                    if(collisionDirection.y > 0)
+                    {
+                        //collided up, reset z to 0 deg
+                    }
+                    else
+                    {
+                        //collided down, rotate z to 180 deg
+                    }
+                }
+            }
         }
+    }
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        //rb.gravityScale = 1;
     }
 }
