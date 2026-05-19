@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
+    private Vector2 moveValue;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -83,15 +85,7 @@ public class PlayerMovement : MonoBehaviour
             canJump = false;
         }
 
-        Vector2 moveValue = move.ReadValue<Vector2>();
-        if(moveValue.x != 0)
-        {
-            rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
-        }
+        moveValue = move.ReadValue<Vector2>();
         
         if(rb.linearVelocity.x>=0.2)
         {
@@ -135,6 +129,16 @@ public class PlayerMovement : MonoBehaviour
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
+
+        if(moveValue.x != 0)
+        {
+            rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
+            //rb.linearVelocity = transform.right * moveSpeed + new Vector3(0, rb.linearVelocity.y, 0);
+        }
+        else
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
+        }
     }
 
     // Show the detection area when selected in editor
