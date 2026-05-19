@@ -15,4 +15,8 @@ public class MenuStuff : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Menu_Test");  
     }
+    public void Level1()
+    {
+        SceneManager.LoadSceneAsync("Level1");
+    }
 }
