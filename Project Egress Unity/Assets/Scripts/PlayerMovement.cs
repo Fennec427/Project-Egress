@@ -214,10 +214,12 @@ public class PlayerMovement : MonoBehaviour
                     if(collisionDirection.x > 0)
                     {
                         //collided right, rotate z to -90 deg
+                        transform.rotation = Quaternion.Euler(0, 0, -90f);
                     }
                     else
                     {
                         //collided left, rotate z to 90 deg
+                        transform.rotation = Quaternion.Euler(0, 0, 90f);
                     }
                 }
                 else
@@ -225,17 +227,16 @@ public class PlayerMovement : MonoBehaviour
                     if(collisionDirection.y > 0)
                     {
                         //collided up, reset z to 0 deg
+                        transform.rotation = Quaternion.Euler(0, 0, 0);
+                        rb.gravityScale = 1;
                     }
                     else
                     {
                         //collided down, rotate z to 180 deg
+                        transform.rotation = Quaternion.Euler(0, 0, 180f);
                     }
                 }
             }
         }
-    }
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        //rb.gravityScale = 1;
     }
 }
