@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
     private Vector2 moveValue;
+    private float jumpValue;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -100,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Proceed");
         }
 
+        jumpValue = 0;
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0 && enableCoyote)))
         {
@@ -107,7 +109,8 @@ public class PlayerMovement : MonoBehaviour
             jumpBuffer = 0f;
             GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
             noJumpCheck = 0.2f;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            jumpValue = 1;
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
         }
         else if (jump.WasPressedThisFrame()) // input buffer
         {
@@ -132,12 +135,15 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveValue.x != 0)
         {
-            rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-            //rb.linearVelocity = transform.right * moveSpeed + new Vector3(0, rb.linearVelocity.y, 0);
+            //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
+            Vector2 movementVelocity = transform.right * moveSpeed * moveValue.x + transform.up * jumpForce * jumpValue;
+            rb.linearVelocity = movementVelocity;
+
         }
         else
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
+            rb.linearVelocity = rb.linearVelocity * (transform.right * slipperyness);
         }
     }
 
