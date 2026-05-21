@@ -88,11 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
         moveValue = move.ReadValue<Vector2>();
         
-        if(rb.linearVelocity.x>=0.2)
+        if(Vector2.Dot(rb.linearVelocity, transform.right) >= 0.2)
         {
             animator.SetTrigger("right");
         }
-        else if(rb.linearVelocity.x <=-0.2)
+        else if(Vector2.Dot(rb.linearVelocity, transform.right) <= -0.2)
         {
             animator.SetTrigger("left");
         }
@@ -111,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
             noJumpCheck = 0.2f;
             jumpValue = 1;
             //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            //rb.linearVelocity = transform.up * jumpForce;
         }
         else if (jump.WasPressedThisFrame()) // input buffer
         {
@@ -133,18 +134,18 @@ public class PlayerMovement : MonoBehaviour
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
 
+        //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
+        Vector2 verticalVelocity = (Vector2)transform.up * Vector2.Dot(rb.linearVelocity, transform.up);
+        if(jumpValue == 1)
+        {
+            verticalVelocity = transform.up * jumpForce;
+        }
+        Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness;
         if(moveValue.x != 0)
         {
-            //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-            Vector2 movementVelocity = transform.right * moveSpeed * moveValue.x + transform.up * jumpForce * jumpValue;
-            rb.linearVelocity = movementVelocity;
-
+            horizontalVelocity = transform.right * moveSpeed * moveValue.x;
         }
-        else
-        {
-            //rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
-            rb.linearVelocity = rb.linearVelocity * (transform.right * slipperyness);
-        }
+        rb.linearVelocity = horizontalVelocity + verticalVelocity;
     }
 
     // Show the detection area when selected in editor
