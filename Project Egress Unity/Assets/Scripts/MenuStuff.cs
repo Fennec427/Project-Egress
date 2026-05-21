@@ -11,6 +11,10 @@ public class MenuStuff : MonoBehaviour
     {
         Application.Quit();
     }
+    public void SetMyGame()
+    {
+        Debug.Log(Time.timeScale);
+    }
     public void BackMyGame() 
     {
         SceneManager.LoadSceneAsync("Menu_Test");  

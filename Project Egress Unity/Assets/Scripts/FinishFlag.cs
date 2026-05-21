@@ -7,6 +7,8 @@ public class FinishFlag : MonoBehaviour
     [SerializeField] private string nextSceneName; //A box in the inspector should allow a specific scene name to be typed. 
 
     [SerializeField] private float delayTime = 3.5f; //A time interval can be typed here or overidden through the inspector.
+
+    //public GameObject
      
     void Start()
     {
@@ -33,9 +35,21 @@ public class FinishFlag : MonoBehaviour
  
         yield return new WaitForSecondsRealtime(delayTime); //The actual pause that calls to the variable "delayTime."
 
-        Time.timeScale = 1.0f; //Resets the speed back to normal!
+        Time.timeScale = 0;
 
+
+    }
+
+    public void NextLevel()
+    {
+        Time.timeScale = 1.0f; //Resets the speed back to normal!
         SceneManager.LoadScene(nextSceneName); //Uses the scne name from the inspector to actually teleport you. 
+    }
+
+    public void LevelSelect()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu_Test2");
     }
 
 }
