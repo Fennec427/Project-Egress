@@ -7,12 +7,15 @@ public class FinishFlag : MonoBehaviour
     [SerializeField] private string nextSceneName; //A box in the inspector should allow a specific scene name to be typed. 
 
     [SerializeField] private float delayTime = 3.5f; //A time interval can be typed here or overidden through the inspector.
+    public GameObject FinishScreen;
+    public GameObject PauseFunction;
 
     //public GameObject
      
     void Start()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        PauseFunction.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -36,6 +39,7 @@ public class FinishFlag : MonoBehaviour
         yield return new WaitForSecondsRealtime(delayTime); //The actual pause that calls to the variable "delayTime."
 
         Time.timeScale = 0;
+        FinishScreen.SetActive(true);
 
 
     }
