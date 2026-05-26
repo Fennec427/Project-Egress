@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slipperyness = 0.5f;
     private Vector2 moveValue;
     private float jumpValue;
+    [SerializeField] private float gravityWeight = -9.81f; //how heavy gravity is
+    private Vector2 gravity;
+    public Vector2 Gravity => gravity; //make the player's gravity publically accessible
 
     // Ground detection
     [Header("Ground Checking")]
@@ -50,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -135,17 +139,22 @@ public class PlayerMovement : MonoBehaviour
         noJumpCheck -= Time.deltaTime;
 
         //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-        Vector2 verticalVelocity = (Vector2)transform.up * Vector2.Dot(rb.linearVelocity, transform.up);
+        gravity = transform.up * gravityWeight;
+        rb.AddForce(gravity, ForceMode2D.Force); //apply gravity
+        
+        Vector2 verticalVelocity = (Vector2)transform.up * Vector2.Dot(rb.linearVelocity, transform.up); //keep vertical velocity
         if(jumpValue == 1)
         {
-            verticalVelocity = transform.up * jumpForce;
+            verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
         }
-        Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness;
+
+        Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
         if(moveValue.x != 0)
         {
-            horizontalVelocity = transform.right * moveSpeed * moveValue.x;
+            horizontalVelocity = transform.right * moveSpeed * moveValue.x; //set left-right velocity if movement key is pressed
         }
-        rb.linearVelocity = horizontalVelocity + verticalVelocity;
+        
+        rb.linearVelocity = horizontalVelocity + verticalVelocity; //add horizontal and vertical velocity variables to get the overall velocity
     }
 
     // Show the detection area when selected in editor
