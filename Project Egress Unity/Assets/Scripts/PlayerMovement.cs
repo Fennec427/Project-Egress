@@ -10,16 +10,17 @@ public class PlayerMovement : MonoBehaviour
 
     // Movement stats
     [Header("Movement Stats")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] [Tooltip("The player's movement speed")] private float moveSpeed = 5f;
+    [SerializeField] [Tooltip("The positive Y force applied to the player when they jump")] private float jumpForce = 5f;
     private Rigidbody2D rb; // Used to set movement
     private bool canJump;
     private float coyoteTime = 0f; // default value at 0 to prevent players from possibly jumping immediately upon level load
-    [SerializeField] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
+    [SerializeField] [Tooltip("How much time after leaving a platform the player has before jump is disabled")] [Min(0f)] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
-    [SerializeField] private PhysicsMaterial2D[] movementMaterials;
+    [SerializeField] [Tooltip("DO NOT CHANGE")] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
+    private bool speedBoost = false;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -29,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private float noJumpCheck = 0f;
 
     [Header("Misc")]
-    [SerializeField] private bool enableCoyote = true;
-    [SerializeField] private bool enableJumpBuffer = true;
+    [SerializeField] [Tooltip("Enables coyote time")] private bool enableCoyote = true;
+    [SerializeField] [Tooltip("Enables jump buffering")] private bool enableJumpBuffer = true;
     public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -77,10 +78,23 @@ public class PlayerMovement : MonoBehaviour
             {
                 canJump = true;
             }
+            if(overlap.gameObject.TryGetComponent<Tile>(out Tile tile))
+            {
+                if (tile.tileName == "red") // speed tile
+                {
+                    moveSpeed = tile.SpeedBoost;
+                    speedBoost = true;
+                }
+                else
+                {
+                    speedBoost = false;
+                }
+            }
         }
         else
         {
             canJump = false;
+            speedBoost = false;
         }
 
         Vector2 moveValue = move.ReadValue<Vector2>();
@@ -135,6 +149,17 @@ public class PlayerMovement : MonoBehaviour
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
+        if (!speedBoost)
+        {
+            if (canJump && moveSpeed > 5f)
+            {
+                moveSpeed -= 0.1f;
+                if (moveSpeed < 5f)
+                {
+                    moveSpeed = 5f;
+                }
+            }
+        }
     }
 
     // Show the detection area when selected in editor
@@ -161,6 +186,22 @@ public class PlayerMovement : MonoBehaviour
         {
             coyoteTime = -1;
             jumpBuffer = -1;
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.TryGetComponent<Tile>(out Tile tile))
+        {
+            if(tile.tileName == "orange")
+            {
+                float yVelocity = Mathf.Abs(collision.relativeVelocity.y) + tile.BounceForce; // TODO: fix 0 + tile.BounceForce
+                if(yVelocity >= tile.MaxBounceForce)
+                {
+                    yVelocity = tile.MaxBounceForce;
+                }
+                GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+                rb.linearVelocityY = yVelocity;
+            }
         }
     }
 }
