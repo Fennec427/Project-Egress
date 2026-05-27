@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +22,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Tooltip("DO NOT CHANGE")] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
     private bool speedBoost = false;
+    private Vector2 moveValue;
+    private float jumpValue;
+    [SerializeField] private float gravityWeight = -9.81f; //how heavy gravity is
+    private Vector2 gravity;
+    public Vector2 Gravity => gravity; //make the player's gravity publically accessible
 
     // Ground detection
     [Header("Ground Checking")]
@@ -48,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -97,21 +104,13 @@ public class PlayerMovement : MonoBehaviour
             speedBoost = false;
         }
 
-        Vector2 moveValue = move.ReadValue<Vector2>();
-        if(moveValue.x != 0)
-        {
-            rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
-        }
+        moveValue = move.ReadValue<Vector2>();
         
-        if(rb.linearVelocity.x>=0.2)
+        if(Vector2.Dot(rb.linearVelocity, transform.right) >= 0.2)
         {
             animator.SetTrigger("right");
         }
-        else if(rb.linearVelocity.x <=-0.2)
+        else if(Vector2.Dot(rb.linearVelocity, transform.right) <= -0.2)
         {
             animator.SetTrigger("left");
         }
@@ -120,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Proceed");
         }
 
+        jumpValue = 0;
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0 && enableCoyote)))
         {
@@ -127,7 +127,9 @@ public class PlayerMovement : MonoBehaviour
             jumpBuffer = 0f;
             GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
             noJumpCheck = 0.2f;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            jumpValue = 1;
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            //rb.linearVelocity = transform.up * jumpForce;
         }
         else if (jump.WasPressedThisFrame()) // input buffer
         {
@@ -160,6 +162,24 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+
+        //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
+        gravity = transform.up * gravityWeight;
+        rb.AddForce(gravity, ForceMode2D.Force); //apply gravity
+        
+        Vector2 verticalVelocity = (Vector2)transform.up * Vector2.Dot(rb.linearVelocity, transform.up); //keep vertical velocity
+        if(jumpValue == 1)
+        {
+            verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
+        }
+
+        Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
+        if(moveValue.x != 0)
+        {
+            horizontalVelocity = transform.right * moveSpeed * moveValue.x; //set left-right velocity if movement key is pressed
+        }
+        
+        rb.linearVelocity = horizontalVelocity + verticalVelocity; //add horizontal and vertical velocity variables to get the overall velocity
     }
 
     // Show the detection area when selected in editor
