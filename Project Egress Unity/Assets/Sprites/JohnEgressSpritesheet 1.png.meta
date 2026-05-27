@@ -1,0 +1,572 @@
+fileFormatVersion: 2
+guid: 9aeba9d31075ff94c84da75572f3ebde
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3273203299866786606
+    second: JohnEgressSpritesheet_0
+  - first:
+      213: -691724301460101672
+    second: JohnEgressSpritesheet_1
+  - first:
+      213: -4390476152902021783
+    second: JohnEgressSpritesheet_2
+  - first:
+      213: 96668489009051982
+    second: JohnEgressSpritesheet_3
+  - first:
+      213: 1754029382554116155
+    second: JohnEgressSpritesheet_4
+  - first:
+      213: 5026286486052040074
+    second: JohnEgressSpritesheet_5
+  - first:
+      213: -3352376000994380625
+    second: JohnEgressSpritesheet_6
+  - first:
+      213: -5945767958529195583
+    second: JohnEgressSpritesheet_7
+  - first:
+      213: 6440233074573708567
+    second: JohnEgressSpritesheet_8
+  - first:
+      213: -3971372195930301140
+    second: JohnEgressSpritesheet_9
+  - first:
+      213: 4128889823574947372
+    second: JohnEgressSpritesheet_10
+  - first:
+      213: 6901270189179784366
+    second: JohnEgressSpritesheet_11
+  - first:
+      213: 7934914517531831837
+    second: JohnEgressSpritesheet_12
+  - first:
+      213: -4018355361206773185
+    second: JohnEgressSpritesheet_13
+  - first:
+      213: -8933671599904400247
+    second: JohnEgressSpritesheet_14
+  - first:
+      213: 7842431344886733287
+    second: JohnEgressSpritesheet_15
+  - first:
+      213: -7855778104182923133
+    second: JohnEgressSpritesheet_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 133
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b323e1f01cc6d20800000000000000
+      internalID: 3273203299866786606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 133
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d527f8a9608666f0800000000000000
+      internalID: -691724301460101672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 133
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d837f5335e113c0800000000000000
+      internalID: -4390476152902021783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 133
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e49bb548a7f675100800000000000000
+      internalID: 96668489009051982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 100
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b306cb02e60975810800000000000000
+      internalID: 1754029382554116155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 101
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d6a7cbde4f0c540800000000000000
+      internalID: 5026286486052040074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 101
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa47f2be9c7f971d0800000000000000
+      internalID: -3352376000994380625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 101
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1c7f23b836c7da0800000000000000
+      internalID: -5945767958529195583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 69
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d00b80cdd406950800000000000000
+      internalID: 6440233074573708567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 69
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2d16be670ad2e8c0800000000000000
+      internalID: -3971372195930301140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 69
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c26f8e23b63cc4930800000000000000
+      internalID: 4128889823574947372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 69
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaccd0d2cac36cf50800000000000000
+      internalID: 6901270189179784366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 36
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e239476ba7e1e60800000000000000
+      internalID: 7934914517531831837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 37
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3adbf1d61feb38c0800000000000000
+      internalID: -4018355361206773185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 37
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98cd3b33309350480800000000000000
+      internalID: -8933671599904400247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 37
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9dc57d1c9e5dc60800000000000000
+      internalID: 7842431344886733287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JohnEgressSpritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 5
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380a2e99f6baaf290800000000000000
+      internalID: -7855778104182923133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      JohnEgressSpritesheet_0: 3273203299866786606
+      JohnEgressSpritesheet_1: -691724301460101672
+      JohnEgressSpritesheet_10: 4128889823574947372
+      JohnEgressSpritesheet_11: 6901270189179784366
+      JohnEgressSpritesheet_12: 7934914517531831837
+      JohnEgressSpritesheet_13: -4018355361206773185
+      JohnEgressSpritesheet_14: -8933671599904400247
+      JohnEgressSpritesheet_15: 7842431344886733287
+      JohnEgressSpritesheet_16: -7855778104182923133
+      JohnEgressSpritesheet_2: -4390476152902021783
+      JohnEgressSpritesheet_3: 96668489009051982
+      JohnEgressSpritesheet_4: 1754029382554116155
+      JohnEgressSpritesheet_5: 5026286486052040074
+      JohnEgressSpritesheet_6: -3352376000994380625
+      JohnEgressSpritesheet_7: -5945767958529195583
+      JohnEgressSpritesheet_8: 6440233074573708567
+      JohnEgressSpritesheet_9: -3971372195930301140
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
