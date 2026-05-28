@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 gravity;
     public Vector2 Gravity => gravity; //make the player's gravity publically accessible
     private float movementDisabled = 0f;
-    [SerializeField] private float movementDisableTime = 0.07f;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -277,9 +276,8 @@ public class PlayerMovement : MonoBehaviour
                 if(newRotation != transform.rotation)
                 {
                     transform.rotation = newRotation;
-                    movementDisabled = movementDisableTime;
-                    DisableJumps(movementDisableTime, true);
-                    print("activate");
+                    movementDisabled = tile.MovementDisableTime;
+                    DisableJumps(tile.MovementDisableTime, true);
                 }
             }
         }
