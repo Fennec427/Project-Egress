@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        jump = InputSystem.actions.FindAction("Jump");
     }
 
     public void UpdateRespawnPoint(UnityEngine.Vector3 newPosition)
@@ -22,10 +23,6 @@ public class GameManager : MonoBehaviour
         Respawn.position = newPosition;
     }
     
-    void Start()
-    {
-        jump = InputSystem.actions.FindAction("Jump");
-    }
     void Update()
     {
         /*
