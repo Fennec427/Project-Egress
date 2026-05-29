@@ -123277,7 +123277,7 @@ GameObject:
   - component: {fileID: 2071970074}
   - component: {fileID: 2071970077}
   - component: {fileID: 2071970076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
