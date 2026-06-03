@@ -1,4 +1,4 @@
-using System.Numerics;
+//using System.Numerics; - Branch Error
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        jump = InputSystem.actions.FindAction("Jump");
     }
 
     public void UpdateRespawnPoint(UnityEngine.Vector3 newPosition)
@@ -22,10 +23,10 @@ public class GameManager : MonoBehaviour
         Respawn.position = newPosition;
     }
     
-    void Start()
-    {
-        jump = InputSystem.actions.FindAction("Jump");
-    }
+    //void Start() - Branch Error
+    //{ - Branch Error
+    //    jump = InputSystem.actions.FindAction("Jump"); - Branch Error
+    //} - Branch Error
     void Update()
     {
         /*
