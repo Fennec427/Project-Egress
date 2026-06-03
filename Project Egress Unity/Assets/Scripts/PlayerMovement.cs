@@ -88,15 +88,7 @@ public class PlayerMovement : MonoBehaviour
             }
             if(overlap.gameObject.TryGetComponent<Tile>(out Tile tile))
             {
-                if (tile.tileName == "red") // speed tile
-                {
-                    moveSpeed = tile.SpeedBoost;
-                    speedBoost = true;
-                }
-                else
-                {
-                    speedBoost = false;
-                }
+                //
             }
         }
         else
@@ -216,8 +208,28 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent<Tile>(out Tile tile))
+        GameObject hitTile = null;
+        if(collision.gameObject.TryGetComponent<TileMapCollision>(out TileMapCollision tilemap))
         {
+            hitTile = tilemap.GetCollisionLocation(collision);
+            
+        }
+
+        GameObject collisionToUse;
+        if(hitTile != null) collisionToUse = hitTile;
+        else collisionToUse = collision.gameObject;
+
+        if(collisionToUse.TryGetComponent<Tile>(out Tile tile))
+        {
+            if (tile.tileName == "red") // speed tile
+            {
+                moveSpeed = tile.SpeedBoost;
+                speedBoost = true;
+            }
+            else
+            {
+                speedBoost = false;
+            }
             if(tile.tileName == "orange")
             {
                 /*
