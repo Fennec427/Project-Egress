@@ -15,7 +15,6 @@ public class FinishFlag : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        PauseFunction.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +22,7 @@ public class FinishFlag : MonoBehaviour
        if (collision.CompareTag("Player")) //Name of tag for the main character.
         {
             anim.SetTrigger("Finish"); //Name of the animation trigger for the finish flag.
+            PauseFunction.SetActive(false);
         }
     } 
 
