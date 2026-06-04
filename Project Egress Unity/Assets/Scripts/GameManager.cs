@@ -23,10 +23,6 @@ public class GameManager : MonoBehaviour
         Respawn.position = newPosition;
     }
     
-    //void Start() - Branch Error
-    //{ - Branch Error
-    //    jump = InputSystem.actions.FindAction("Jump"); - Branch Error
-    //} - Branch Error
     void Update()
     {
         /*
