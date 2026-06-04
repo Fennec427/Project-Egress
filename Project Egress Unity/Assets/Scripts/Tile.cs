@@ -44,4 +44,11 @@ public class Tile : MonoBehaviour
             }
         }
     }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 3 && normal)
+        {
+            print("player hit me :(");
+        }
+    }
 }
