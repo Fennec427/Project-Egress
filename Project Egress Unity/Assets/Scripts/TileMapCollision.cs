@@ -21,9 +21,10 @@ public class TileMapCollision : MonoBehaviour
     public GameObject GetCollisionLocation(Collision2D collision)
     {
         Vector3 hitPoint = collision.GetContact(0).point;
+        print(hitPoint);
         Vector3Int cellPoint = tilemap.WorldToCell(hitPoint);
+        print(cellPoint);
         GameObject hitTile = tilemap.GetInstantiatedObject(cellPoint);
-        print(hitTile.name);
         return hitTile;
     }
 }

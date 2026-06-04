@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -40,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] [Tooltip("Enables coyote time")] private bool enableCoyote = true;
     [SerializeField] [Tooltip("Enables jump buffering")] private bool enableJumpBuffer = true;
     public Animator animator;
+    readonly Collider2D[] results = new Collider2D[10];
+    readonly List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
+    private float stopOrangeBounce = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -145,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
         movementDisabled -= Time.deltaTime;
+        stopOrangeBounce -= Time.deltaTime;
 
         if (!speedBoost)
         {
@@ -206,20 +212,162 @@ public class PlayerMovement : MonoBehaviour
             jumpBuffer = -1;
         }
     }
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionStay2D(Collision2D collision)
     {
-        GameObject hitTile = null;
+        /*GameObject hitTile = null;
         if(collision.gameObject.TryGetComponent<TileMapCollision>(out TileMapCollision tilemap))
         {
             hitTile = tilemap.GetCollisionLocation(collision);
             
+        }*/
+
+        Tilemap tilemap = collision.collider.GetComponent<Tilemap>();
+        if(tilemap != null)
+        {
+
+            collision.GetContacts(contactPoints);
+            foreach(ContactPoint2D contact in contactPoints)
+            {
+                Vector3 contactPoint = contact.point - contact.normal * 0.03f;
+                int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
+                //print(pointHits);
+                foreach(var collider in results)
+                {
+                    if(collider == null) continue;
+                    //print(collider.gameObject.name);
+                    Tile colTile = collider.GetComponent<Tile>();
+                    if(colTile != null)
+                    {
+                        if(colTile.tileName == "red")
+                        {
+                            moveSpeed = colTile.SpeedBoost;
+                            speedBoost = true;
+                        }
+                        else speedBoost = false;
+
+                        // looking for orange? see OnCollisionEnter2D down below (having it here breaks the orange tile)
+
+                        if(colTile.tileName == "green")
+                        {
+                            Vector2 collisionDirection = contact.normal;
+
+                            Quaternion newRotation;
+                            if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
+                            {
+                                if(collisionDirection.x > 0) newRotation = Quaternion.Euler(0, 0, -90f); //collided right, rotate z to -90 deg
+                                else newRotation = Quaternion.Euler(0, 0, 90f); //collided left, rotate z to 90 deg
+                            }
+                            else
+                            {
+                                if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
+                                else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
+                            }
+                            if(newRotation != transform.rotation)
+                            {
+                                transform.rotation = newRotation;
+                                movementDisabled = colTile.MovementDisableTime;
+                                DisableJumps(colTile.MovementDisableTime, true);
+                            }
+                        }
+                    }
+                    
+                }
+            }
+
+            /*
+            Vector3 contactPoint = collision.GetContact(0).point - collision.GetContact(0).normal * 0.03f;
+            int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
+            print(pointHits);
+            foreach(var collider in results)
+            {
+                if(collider == null) continue;
+                print(collider.gameObject.name);
+                Tile colTile = collider.GetComponent<Tile>();
+                if(colTile != null)
+                {
+                    if(colTile.tileName == "red")
+                    {
+                        moveSpeed = colTile.SpeedBoost;
+                        speedBoost = true;
+                    }
+                    else speedBoost = false;
+
+                    if(colTile.tileName == "orange")
+                    {
+                        float localUpVelocity = Vector2.Dot(collision.relativeVelocity, transform.up);
+                        Vector2 newVelocity = transform.up * localUpVelocity + transform.up * colTile.BounceForce;
+                        if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
+                        {
+                            newVelocity = transform.up * colTile.MaxBounceForce;
+                        }
+                        rb.AddForce(newVelocity, ForceMode2D.Impulse);
+                    }
+
+                    if(colTile.tileName == "green")
+                    {
+                        Vector2 collisionDirection = collision.GetContact(0).normal;
+
+                        Quaternion newRotation;
+                        if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
+                        {
+                            if(collisionDirection.x > 0) newRotation = Quaternion.Euler(0, 0, -90f); //collided right, rotate z to -90 deg
+                            else newRotation = Quaternion.Euler(0, 0, 90f); //collided left, rotate z to 90 deg
+                        }
+                        else
+                        {
+                            if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
+                            else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
+                        }
+                        if(newRotation != transform.rotation)
+                        {
+                            transform.rotation = newRotation;
+                            movementDisabled = colTile.MovementDisableTime;
+                            DisableJumps(colTile.MovementDisableTime, true);
+                        }
+                    }
+                }
+                
+            }*/
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.GetComponent<Tilemap>() != null)
+        {
+            collision.GetContacts(contactPoints);
+            foreach(ContactPoint2D contact in contactPoints)
+            {
+                Vector3 contactPoint = contact.point - contact.normal * 0.03f;
+                int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
+                //print(pointHits);
+                foreach(var collider in results)
+                {
+                    if(collider == null) continue;
+                    //print(collider.gameObject.name);
+                    Tile colTile = collider.GetComponent<Tile>();
+                    if(colTile != null)
+                    {
+                        if(colTile.tileName == "orange")
+                        {
+                            if(stopOrangeBounce <= 0f)
+                            {
+                                stopOrangeBounce = 0.05f;
+                                float localUpVelocity = Vector2.Dot(collision.relativeVelocity, transform.up);
+                                Vector2 newVelocity = transform.up * localUpVelocity + transform.up * colTile.BounceForce;
+                                if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
+                                {
+                                    newVelocity = transform.up * colTile.MaxBounceForce;
+                                }
+                                rb.AddForce(newVelocity, ForceMode2D.Impulse);
+                            }
+                        }
+                    }
+                }
+            }
         }
 
-        GameObject collisionToUse;
-        if(hitTile != null) collisionToUse = hitTile;
-        else collisionToUse = collision.gameObject;
-
-        if(collisionToUse.TryGetComponent<Tile>(out Tile tile))
+        if(collision.gameObject.GetComponent<Tilemap>() != null || collision.gameObject.GetComponent<CompositeCollider2D>() != null) return; //check if we are hitting a tilemap
+        if(collision.gameObject.TryGetComponent<Tile>(out Tile tile))
         {
             if (tile.tileName == "red") // speed tile
             {
