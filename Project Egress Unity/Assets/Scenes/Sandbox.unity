@@ -1131,7 +1131,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31493dd302e48364d9f7caac7d155c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PaintGun
-  sprites: []
+  sprites:
+  - {fileID: 2675018026396389293, guid: c955868ea638c304eb1148a06c73ad93, type: 3}
+  - {fileID: -3177260211274639285, guid: effb385aaffd72045a83d06e14ccb01b, type: 3}
+  - {fileID: -7913875702771276491, guid: c53dc73a8743a3145a3485310ef24bb6, type: 3}
 --- !u!212 &1682700881
 SpriteRenderer:
   serializedVersion: 2

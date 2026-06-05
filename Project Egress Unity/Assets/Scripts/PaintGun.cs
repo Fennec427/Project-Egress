@@ -6,6 +6,7 @@ public class PaintGun : MonoBehaviour
     GameObject parent;
     [SerializeField] Sprite[] sprites;
     SpriteRenderer sr;
+    private float paintType = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,5 +28,12 @@ public class PaintGun : MonoBehaviour
         print(parent.transform.eulerAngles.z);
         if(parent.transform.rotation.eulerAngles.z > 0 && parent.transform.rotation.eulerAngles.z < 180) sr.flipY = true;
         else sr.flipY = false;
+    }
+
+    public void UpdatePaint(int newPaint)
+    {
+        if(newPaint <= sprites.Length - 1) Debug.LogError("Invalid ");
+        paintType = newPaint;
+        sr.sprite = sprites[newPaint];
     }
 }
