@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.EditorTools;
 using UnityEngine;
 
@@ -17,6 +18,10 @@ public class Tile : MonoBehaviour
     public float BounceForce => bounceForce;
     [SerializeField] [Tooltip("The max Y force the player can have after Bounce Force is applied")] private float maxBounceForce = 10f;
     public float MaxBounceForce => maxBounceForce;
+
+    [Header("Green Tile Stats")]
+    [SerializeField] [Tooltip("How long the player will stop accepting input for, to counteract players walking right off after rotation")] private float movementDisableTime = 0.07f;
+    public float MovementDisableTime => movementDisableTime;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,6 +42,13 @@ public class Tile : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = tiles[2]; // Rusted tile
             }
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 3 && normal)
+        {
+            print("player hit me :(");
         }
     }
 }
