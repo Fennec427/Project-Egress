@@ -413,8 +413,16 @@ public class PlayerMovement : MonoBehaviour
         //float localUpVelocity = Mathf.Abs(Vector2.Dot(currentRelVelocity, transform.up));
         float localUpVelocity = Mathf.Abs(Vector2.Dot(playerVel, transform.up));
         //if(Mathf.FloorToInt(Vector2.Dot(currentRelVelocity, transform.up)) == 0)
-        print(playerVel);
-        Vector2 newVelocity = (Vector2)transform.up * localUpVelocity + (Vector2)transform.up * colTile.BounceForce;
+        print(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y));
+        Vector2 newVelocity;
+        if(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y) >= 0)
+        {
+            newVelocity = (Vector2)transform.up * localUpVelocity + (Vector2)transform.up * colTile.BounceForce;
+        }
+        else
+        {
+            newVelocity = ((Vector2)transform.up * localUpVelocity + (Vector2)transform.up * colTile.BounceForce) * -1f;
+        }
         if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
         {
             newVelocity = transform.up * colTile.MaxBounceForce;
