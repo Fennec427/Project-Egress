@@ -47,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
     readonly List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
     private bool stopOrangeBounce = true;
     private float stopOrangeBounceTime = 0f;
-    private Vector2 currentRelVelocity = new Vector2(0,0);
+    private Vector2 currentVelocity = new Vector2(0,0);
+    private float greenTileTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -93,10 +94,6 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 canJump = true;
-            }
-            if(overlap.gameObject.TryGetComponent<Tile>(out Tile tile))
-            {
-                //
             }
         }
         else
@@ -154,6 +151,7 @@ public class PlayerMovement : MonoBehaviour
         noJumpCheck -= Time.deltaTime;
         movementDisabled -= Time.deltaTime;
         stopOrangeBounceTime -= Time.deltaTime;
+        greenTileTime -= Time.deltaTime;
 
         if (!speedBoost)
         {
@@ -165,6 +163,12 @@ public class PlayerMovement : MonoBehaviour
                     moveSpeed = 5f;
                 }
             }
+        }
+
+        if(greenTileTime < 0f)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            DisableJumps(0.07f, true);
         }
 
         //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
@@ -233,10 +237,15 @@ public class PlayerMovement : MonoBehaviour
         Tilemap tilemap = collision.collider.GetComponent<Tilemap>();
         if(tilemap != null)
         {
-
             collision.GetContacts(contactPoints);
             foreach(ContactPoint2D contact in contactPoints)
             {
+                //print(Vector2.Dot(contact.normal, transform.up));
+                if(Vector2.Dot(contact.normal, transform.up) != 0 && Vector2.Dot(rb.linearVelocity, transform.up) != 0)
+                {
+                    currentVelocity = rb.linearVelocity;
+
+                }
                 Vector3 contactPoint = contact.point - contact.normal * 0.03f;
                 int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
                 //print(pointHits);
@@ -261,12 +270,13 @@ public class PlayerMovement : MonoBehaviour
                             {
                                 OrangeTile(collision, colTile, rb.linearVelocity);
                                 stopOrangeBounce = true;
-                                stopOrangeBounceTime = 0.3f;
+                                stopOrangeBounceTime = 0.1f;
                             }
                         }
 
                         if(colTile.tileName == "green")
                         {
+                            print("a");
                             Vector2 collisionDirection = contact.normal;
 
                             Quaternion newRotation;
@@ -286,6 +296,7 @@ public class PlayerMovement : MonoBehaviour
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
                             }
+                            greenTileTime = 0.25f;
                         }
                     }
                     
@@ -295,11 +306,9 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        currentRelVelocity = collision.relativeVelocity;
         //if(collision.gameObject.GetComponent<Tilemap>() != null || collision.gameObject.GetComponent<CompositeCollider2D>() != null) return;
         if(collision.gameObject.TryGetComponent<Tilemap>(out _) || collision.gameObject.TryGetComponent<CompositeCollider2D>(out _))
         {
-            print("ran");
             collision.GetContacts(contactPoints);
             foreach(ContactPoint2D contact in contactPoints)
             {
@@ -320,7 +329,7 @@ public class PlayerMovement : MonoBehaviour
                             {
                                 OrangeTile(collision, colTile, collision.relativeVelocity);
                                 stopOrangeBounce = true;
-                                stopOrangeBounceTime = 0.3f;
+                                stopOrangeBounceTime = 0.1f;
                             }
                         }
                     }
@@ -364,6 +373,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
+                print("b");
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
@@ -403,6 +413,7 @@ public class PlayerMovement : MonoBehaviour
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
                 }
+                greenTileTime = 0.25f;
             }
         }
     }
@@ -411,9 +422,11 @@ public class PlayerMovement : MonoBehaviour
     {
         //float localUpVelocity = 1;
         //float localUpVelocity = Mathf.Abs(Vector2.Dot(currentRelVelocity, transform.up));
+        if(Vector2.Dot(playerVel, transform.up) == 0) playerVel = currentVelocity;
+
         float localUpVelocity = Mathf.Abs(Vector2.Dot(playerVel, transform.up));
         //if(Mathf.FloorToInt(Vector2.Dot(currentRelVelocity, transform.up)) == 0)
-        print(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y));
+        //print(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y));
         Vector2 newVelocity;
         if(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y) >= 0)
         {
