@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.VisualScripting;
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     readonly Collider2D[] results = new Collider2D[10];
     readonly List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
-    private float stopOrangeBounce = 0f;
+    private bool stopOrangeBounce = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -150,7 +151,6 @@ public class PlayerMovement : MonoBehaviour
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
         movementDisabled -= Time.deltaTime;
-        stopOrangeBounce -= Time.deltaTime;
 
         if (!speedBoost)
         {
@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            Object.FindAnyObjectByType<GameManager>().PlayerDied();
+            FindAnyObjectByType<GameManager>().PlayerDied();
         }
     }
     
@@ -220,6 +220,9 @@ public class PlayerMovement : MonoBehaviour
             hitTile = tilemap.GetCollisionLocation(collision);
             
         }*/
+
+        Array.Clear(results, 0, results.Length);
+        stopOrangeBounce = false;
 
         Tilemap tilemap = collision.collider.GetComponent<Tilemap>();
         if(tilemap != null)
@@ -248,8 +251,12 @@ public class PlayerMovement : MonoBehaviour
                         // looking for orange? see OnCollisionEnter2D down below (having it here breaks the orange tile)
                         if(colTile.tileName == "orange")
                         {
-                            OrangeTile(collision);
-                            stopOrangeBounce = 0.05f;
+                            if(!stopOrangeBounce)
+                            {
+                                OrangeTile(collision, colTile);
+                                stopOrangeBounce = true;
+                            }
+                            
                         }
 
                         if(colTile.tileName == "green")
@@ -359,40 +366,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OrangeTile(Collision2D collision)
+    private void OrangeTile(Collision2D collision, Tile colTile)
     {
-        if(collision.gameObject.GetComponent<Tilemap>() != null)
+        float localUpVelocity = Vector2.Dot(collision.relativeVelocity, transform.up);
+        Vector2 newVelocity = transform.up * localUpVelocity + transform.up * colTile.BounceForce;
+        if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
         {
-            collision.GetContacts(contactPoints);
-            foreach(ContactPoint2D contact in contactPoints)
-            {
-                Vector3 contactPoint = contact.point - contact.normal * 0.03f;
-                int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
-                //print(pointHits);
-                foreach(var collider in results)
-                {
-                    if(collider == null) continue;
-                    //print(collider.gameObject.name);
-                    Tile colTile = collider.GetComponent<Tile>();
-                    if(colTile != null)
-                    {
-                        if(colTile.tileName == "orange")
-                        {
-                            if(stopOrangeBounce <= 0f)
-                            {
-                                stopOrangeBounce = 0.05f;
-                                float localUpVelocity = Vector2.Dot(collision.relativeVelocity, transform.up);
-                                Vector2 newVelocity = transform.up * localUpVelocity + transform.up * colTile.BounceForce;
-                                if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
-                                {
-                                    newVelocity = transform.up * colTile.MaxBounceForce;
-                                }
-                                rb.AddForce(newVelocity, ForceMode2D.Impulse);
-                            }
-                        }
-                    }
-                }
-            }
+            newVelocity = transform.up * colTile.MaxBounceForce;
         }
+        rb.AddForce(newVelocity, ForceMode2D.Impulse);
     }
 }
