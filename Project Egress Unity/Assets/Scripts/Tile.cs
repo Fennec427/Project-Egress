@@ -29,7 +29,6 @@ public class Tile : MonoBehaviour
         if(normal)
         {
             int rand = Random.Range(0, 101);
-            //print(rand);
             if(rand >= 0 && rand <= 90)
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = tiles[0]; // Normal grey tile
@@ -42,13 +41,6 @@ public class Tile : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = tiles[2]; // Rusted tile
             }
-        }
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.layer == 3 && normal)
-        {
-            print("player hit me :(");
         }
     }
 }
