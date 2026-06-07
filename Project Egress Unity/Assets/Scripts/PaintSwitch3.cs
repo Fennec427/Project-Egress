@@ -7,6 +7,17 @@ public class PaintSwitch3 : MonoBehaviour
     public bool canpaint = true;
     [SerializeField] GameObject centerPoint;
     [SerializeField] Sprite[] sprites;
+
+    private int paintType = 0;
+    public int PaintType => paintType;
+    private PaintGun paintGun;
+
+    void Start()
+    {
+        PaintGun[] components = transform.parent.transform.parent.GetComponentsInChildren<PaintGun>();
+        if(components.Length != 0) paintGun = components[0];
+    }
+    
     void Update()
     {
         if(Time.timeScale != 0f)
@@ -20,6 +31,7 @@ public class PaintSwitch3 : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 GetComponent<SpriteRenderer>().enabled = false; 
+                if(paintGun != null) paintGun.UpdatePaint(paintType);
             }
         }
         if (Keyboard.current.eKey.isPressed)
@@ -31,14 +43,17 @@ public class PaintSwitch3 : MonoBehaviour
             if(relativePos.y >= 0.2f)
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[0];
+                paintType = 0;
             }
             else if(relativePos.x >= 0f)
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[1];
+                paintType = 1;
             }
             else
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
+                paintType = 2;
             }
         }
     }
