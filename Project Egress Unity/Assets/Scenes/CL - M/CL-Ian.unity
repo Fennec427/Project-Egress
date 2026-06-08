@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 70971388}
   - component: {fileID: 70971387}
   - component: {fileID: 70971386}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 149814427}
   - component: {fileID: 149814426}
   - component: {fileID: 149814425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 177055810}
   - component: {fileID: 177055809}
   - component: {fileID: 177055808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,9 +753,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!4 &179936179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+  m_PrefabInstance: {fileID: 624661677}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &184567052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1810668918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &192103546 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 1810668918}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &237821449
@@ -771,7 +781,7 @@ GameObject:
   - component: {fileID: 237821453}
   - component: {fileID: 237821452}
   - component: {fileID: 237821451}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,6 +1033,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1041,7 +1055,7 @@ GameObject:
   - component: {fileID: 286003643}
   - component: {fileID: 286003642}
   - component: {fileID: 286003641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1311,7 +1329,7 @@ GameObject:
   - component: {fileID: 290047227}
   - component: {fileID: 290047226}
   - component: {fileID: 290047225}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1542,7 @@ GameObject:
   - component: {fileID: 302485266}
   - component: {fileID: 302485265}
   - component: {fileID: 302485264}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1771,6 +1789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1789,7 +1811,7 @@ GameObject:
   - component: {fileID: 353771852}
   - component: {fileID: 353771851}
   - component: {fileID: 353771850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2036,6 +2058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2054,7 +2080,7 @@ GameObject:
   - component: {fileID: 378701501}
   - component: {fileID: 378701500}
   - component: {fileID: 378701499}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2262,7 +2288,7 @@ GameObject:
   - component: {fileID: 394298983}
   - component: {fileID: 394298982}
   - component: {fileID: 394298981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,6 +2488,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8178542230228557163, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
   m_PrefabInstance: {fileID: 1671008442}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &399812086 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 782166080533556562, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
+  m_PrefabInstance: {fileID: 1671008442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &417719190 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
@@ -2524,6 +2555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2532,6 +2567,11 @@ PrefabInstance:
 --- !u!4 &467846802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8178542230228557163, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
+  m_PrefabInstance: {fileID: 557839971}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &467846806 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 782166080533556562, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
   m_PrefabInstance: {fileID: 557839971}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &473214269 stripped
@@ -2591,6 +2631,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2648,6 +2692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2657,6 +2705,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 514216562}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &552834535 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 286193035}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &557839971
 PrefabInstance:
@@ -2723,6 +2776,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
+--- !u!61 &559729651 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1369907261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &576679596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2792,6 +2850,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0fac417f1cf2954c8ab82b9b3504fa5, type: 3}
+--- !u!1001 &624661677
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1157316169}
+    m_Modifications:
+    - target: {fileID: 2426790660789738642, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887254882554617398, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_Name
+      value: SpikeEgress_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 287.43805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 21.045567
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3.7875
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.7608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6858987596807551591, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 705f3cc1832d91c48819b527e78499d4, type: 3}
 --- !u!1001 &650045685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2843,6 +2974,10 @@ PrefabInstance:
     - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
       propertyPath: m_Name
       value: Pre Painted Orange Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2901,11 +3036,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+--- !u!61 &698287825 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1587788585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &720935669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
@@ -2967,6 +3111,10 @@ PrefabInstance:
     - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
       propertyPath: m_Name
       value: Pre Painted Orange Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3087,6 +3235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3159,6 +3311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3177,7 +3333,7 @@ GameObject:
   - component: {fileID: 1024288677}
   - component: {fileID: 1024288676}
   - component: {fileID: 1024288675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3372,6 +3528,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1032474414 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1022898044}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1057102276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3424,6 +3585,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3442,7 +3607,7 @@ GameObject:
   - component: {fileID: 1058559539}
   - component: {fileID: 1058559538}
   - component: {fileID: 1058559537}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3650,7 +3815,7 @@ GameObject:
   - component: {fileID: 1063559834}
   - component: {fileID: 1063559833}
   - component: {fileID: 1063559832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3897,6 +4062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3915,7 +4084,7 @@ GameObject:
   - component: {fileID: 1112254776}
   - component: {fileID: 1112254775}
   - component: {fileID: 1112254774}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4115,6 +4284,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 650045685}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1143496898 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 650045685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1150865231
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,7 +4302,7 @@ GameObject:
   - component: {fileID: 1150865235}
   - component: {fileID: 1150865234}
   - component: {fileID: 1150865233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4334,7 +4508,9 @@ GameObject:
   - component: {fileID: 1157316169}
   - component: {fileID: 1157316171}
   - component: {fileID: 1157316170}
-  m_Layer: 0
+  - component: {fileID: 1157316173}
+  - component: {fileID: 1157316172}
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4413,6 +4589,7 @@ Transform:
   - {fileID: 1850325814}
   - {fileID: 286193036}
   - {fileID: 1012422028}
+  - {fileID: 179936179}
   - {fileID: 1256394327}
   m_Father: {fileID: 2071970075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4510,6 +4687,610 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &1157316172
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157316168}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1355558627}
+    m_ColliderPaths:
+    - - X: -49998600
+        Y: 10001400
+      - X: -60001400
+        Y: 10001400
+      - X: -60001400
+        Y: -1400
+      - X: -49998600
+        Y: -1400
+  - m_Collider: {fileID: 467846806}
+    m_ColliderPaths:
+    - - X: -29998600
+        Y: 10001400
+      - X: -40001400
+        Y: 10001400
+      - X: -40001400
+        Y: -1400
+      - X: -29998600
+        Y: -1400
+  - m_Collider: {fileID: 399812086}
+    m_ColliderPaths:
+    - - X: -39998600
+        Y: 10001400
+      - X: -50001400
+        Y: 10001400
+      - X: -50001400
+        Y: -1400
+      - X: -39998600
+        Y: -1400
+  - m_Collider: {fileID: 1462887808}
+    m_ColliderPaths:
+    - - X: -19998600
+        Y: 10001400
+      - X: -30001400
+        Y: 10001400
+      - X: -30001400
+        Y: -1400
+      - X: -19998600
+        Y: -1400
+  - m_Collider: {fileID: 559729651}
+    m_ColliderPaths:
+    - - X: -9998600
+        Y: 10001400
+      - X: -20001400
+        Y: 10001400
+      - X: -20001400
+        Y: -1400
+      - X: -9998600
+        Y: -1400
+  - m_Collider: {fileID: 192103546}
+    m_ColliderPaths:
+    - - X: 1400
+        Y: 10001400
+      - X: -10001400
+        Y: 10001400
+      - X: -10001400
+        Y: -1400
+      - X: 1400
+        Y: -1400
+  - m_Collider: {fileID: 698287825}
+    m_ColliderPaths:
+    - - X: 10001400
+        Y: 10001400
+      - X: -1400
+        Y: 10001400
+      - X: -1400
+        Y: -1400
+      - X: 10001400
+        Y: -1400
+  - m_Collider: {fileID: 1505428962}
+    m_ColliderPaths:
+    - - X: 40001400
+        Y: 10001400
+      - X: 29998600
+        Y: 10001400
+      - X: 29998600
+        Y: -1400
+      - X: 40001400
+        Y: -1400
+  - m_Collider: {fileID: 1499360128}
+    m_ColliderPaths:
+    - - X: 50001400
+        Y: 10001400
+      - X: 39998600
+        Y: 10001400
+      - X: 39998600
+        Y: -1400
+      - X: 50001400
+        Y: -1400
+  - m_Collider: {fileID: 1838084868}
+    m_ColliderPaths:
+    - - X: 60001400
+        Y: 10001400
+      - X: 49998600
+        Y: 10001400
+      - X: 49998600
+        Y: -1400
+      - X: 60001400
+        Y: -1400
+  - m_Collider: {fileID: 1789151907}
+    m_ColliderPaths:
+    - - X: 70001400
+        Y: 10001400
+      - X: 59998600
+        Y: 10001400
+      - X: 59998600
+        Y: -1400
+      - X: 70001400
+        Y: -1400
+  - m_Collider: {fileID: 1790952526}
+    m_ColliderPaths:
+    - - X: 80001400
+        Y: 10001400
+      - X: 69998600
+        Y: 10001400
+      - X: 69998600
+        Y: -1400
+      - X: 80001400
+        Y: -1400
+  - m_Collider: {fileID: 1032474414}
+    m_ColliderPaths:
+    - - X: 90001400
+        Y: 10001400
+      - X: 79998600
+        Y: 10001400
+      - X: 79998600
+        Y: -1400
+      - X: 90001400
+        Y: -1400
+  - m_Collider: {fileID: 1143496898}
+    m_ColliderPaths:
+    - - X: 100001400
+        Y: 10001400
+      - X: 89998600
+        Y: 10001400
+      - X: 89998600
+        Y: -1400
+      - X: 100001400
+        Y: -1400
+  - m_Collider: {fileID: 1535897080}
+    m_ColliderPaths:
+    - - X: -19998600
+        Y: 60001400
+      - X: -30001400
+        Y: 60001400
+      - X: -30001400
+        Y: 49998600
+      - X: -19998600
+        Y: 49998600
+  - m_Collider: {fileID: 70971388}
+    m_ColliderPaths:
+    - - X: -9998600
+        Y: 60001400
+      - X: -20001400
+        Y: 60001400
+      - X: -20001400
+        Y: 49998600
+      - X: -9998600
+        Y: 49998600
+  - m_Collider: {fileID: 1323854294}
+    m_ColliderPaths:
+    - - X: 1400
+        Y: 60001400
+      - X: -10001400
+        Y: 60001400
+      - X: -10001400
+        Y: 49998600
+      - X: 1400
+        Y: 49998600
+  - m_Collider: {fileID: 1058559539}
+    m_ColliderPaths:
+    - - X: 10001400
+        Y: 60001400
+      - X: -1400
+        Y: 60001400
+      - X: -1400
+        Y: 49998600
+      - X: 10001400
+        Y: 49998600
+  - m_Collider: {fileID: 290047227}
+    m_ColliderPaths:
+    - - X: 20001400
+        Y: 60001400
+      - X: 9998600
+        Y: 60001400
+      - X: 9998600
+        Y: 49998600
+      - X: 20001400
+        Y: 49998600
+  - m_Collider: {fileID: 1990690804}
+    m_ColliderPaths:
+    - - X: 30001400
+        Y: 60001400
+      - X: 19998600
+        Y: 60001400
+      - X: 19998600
+        Y: 49998600
+      - X: 30001400
+        Y: 49998600
+  - m_Collider: {fileID: 286003643}
+    m_ColliderPaths:
+    - - X: 40001400
+        Y: 60001400
+      - X: 29998600
+        Y: 60001400
+      - X: 29998600
+        Y: 49998600
+      - X: 40001400
+        Y: 49998600
+  - m_Collider: {fileID: 302485266}
+    m_ColliderPaths:
+    - - X: 50001400
+        Y: 60001400
+      - X: 39998600
+        Y: 60001400
+      - X: 39998600
+        Y: 49998600
+      - X: 50001400
+        Y: 49998600
+  - m_Collider: {fileID: 149814427}
+    m_ColliderPaths:
+    - - X: 60001400
+        Y: 60001400
+      - X: 49998600
+        Y: 60001400
+      - X: 49998600
+        Y: 49998600
+      - X: 60001400
+        Y: 49998600
+  - m_Collider: {fileID: 177055810}
+    m_ColliderPaths:
+    - - X: 70001400
+        Y: 60001400
+      - X: 59998600
+        Y: 60001400
+      - X: 59998600
+        Y: 49998600
+      - X: 70001400
+        Y: 49998600
+  - m_Collider: {fileID: 1558969457}
+    m_ColliderPaths:
+    - - X: 80001400
+        Y: 60001400
+      - X: 69998600
+        Y: 60001400
+      - X: 69998600
+        Y: 49998600
+      - X: 80001400
+        Y: 49998600
+  - m_Collider: {fileID: 1063559834}
+    m_ColliderPaths:
+    - - X: 90001400
+        Y: 60001400
+      - X: 79998600
+        Y: 60001400
+      - X: 79998600
+        Y: 49998600
+      - X: 90001400
+        Y: 49998600
+  - m_Collider: {fileID: 1150865235}
+    m_ColliderPaths:
+    - - X: 100001400
+        Y: 60001400
+      - X: 89998600
+        Y: 60001400
+      - X: 89998600
+        Y: 49998600
+      - X: 100001400
+        Y: 49998600
+  - m_Collider: {fileID: 1024288677}
+    m_ColliderPaths:
+    - - X: 110001400
+        Y: 60001400
+      - X: 99998600
+        Y: 60001400
+      - X: 99998600
+        Y: 49998600
+      - X: 110001400
+        Y: 49998600
+  - m_Collider: {fileID: 1321579830}
+    m_ColliderPaths:
+    - - X: 120001400
+        Y: 60001400
+      - X: 109998600
+        Y: 60001400
+      - X: 109998600
+        Y: 49998600
+      - X: 120001400
+        Y: 49998600
+  - m_Collider: {fileID: 1242964524}
+    m_ColliderPaths:
+    - - X: 130001400
+        Y: 60001400
+      - X: 119998600
+        Y: 60001400
+      - X: 119998600
+        Y: 49998600
+      - X: 130001400
+        Y: 49998600
+  - m_Collider: {fileID: 1557765939}
+    m_ColliderPaths:
+    - - X: 130001400
+        Y: 10001400
+      - X: 119998600
+        Y: 10001400
+      - X: 119998600
+        Y: -1400
+      - X: 130001400
+        Y: -1400
+  - m_Collider: {fileID: 1268316967}
+    m_ColliderPaths:
+    - - X: 140001408
+        Y: 10001400
+      - X: 129998600
+        Y: 10001400
+      - X: 129998600
+        Y: -1400
+      - X: 140001408
+        Y: -1400
+  - m_Collider: {fileID: 1265504588}
+    m_ColliderPaths:
+    - - X: 150001408
+        Y: 10001400
+      - X: 139998592
+        Y: 10001400
+      - X: 139998592
+        Y: -1400
+      - X: 150001408
+        Y: -1400
+  - m_Collider: {fileID: 1764570683}
+    m_ColliderPaths:
+    - - X: 160001392
+        Y: 10001400
+      - X: 149998592
+        Y: 10001400
+      - X: 149998592
+        Y: -1400
+      - X: 160001392
+        Y: -1400
+  - m_Collider: {fileID: 1393073096}
+    m_ColliderPaths:
+    - - X: 170001392
+        Y: 10001400
+      - X: 159998592
+        Y: 10001400
+      - X: 159998592
+        Y: -1400
+      - X: 170001392
+        Y: -1400
+  - m_Collider: {fileID: 378701501}
+    m_ColliderPaths:
+    - - X: 130001400
+        Y: 70001400
+      - X: 119998600
+        Y: 70001400
+      - X: 119998600
+        Y: 59998600
+      - X: 130001400
+        Y: 59998600
+  - m_Collider: {fileID: 394298983}
+    m_ColliderPaths:
+    - - X: 130001400
+        Y: 80001400
+      - X: 119998600
+        Y: 80001400
+      - X: 119998600
+        Y: 69998600
+      - X: 130001400
+        Y: 69998600
+  - m_Collider: {fileID: 353771852}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 10001400
+      - X: 199998608
+        Y: 10001400
+      - X: 199998608
+        Y: -1400
+      - X: 210001392
+        Y: -1400
+  - m_Collider: {fileID: 2107794535}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 20001400
+      - X: 199998608
+        Y: 20001400
+      - X: 199998608
+        Y: 9998600
+      - X: 210001392
+        Y: 9998600
+  - m_Collider: {fileID: 1465567551}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 30001400
+      - X: 199998608
+        Y: 30001400
+      - X: 199998608
+        Y: 19998600
+      - X: 210001392
+        Y: 19998600
+  - m_Collider: {fileID: 1293545916}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 40001400
+      - X: 199998608
+        Y: 40001400
+      - X: 199998608
+        Y: 29998600
+      - X: 210001392
+        Y: 29998600
+  - m_Collider: {fileID: 237821453}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 50001400
+      - X: 199998608
+        Y: 50001400
+      - X: 199998608
+        Y: 39998600
+      - X: 210001392
+        Y: 39998600
+  - m_Collider: {fileID: 1761105242}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 60001400
+      - X: 199998608
+        Y: 60001400
+      - X: 199998608
+        Y: 49998600
+      - X: 210001392
+        Y: 49998600
+  - m_Collider: {fileID: 1201387612}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 70001400
+      - X: 199998608
+        Y: 70001400
+      - X: 199998608
+        Y: 59998600
+      - X: 210001392
+        Y: 59998600
+  - m_Collider: {fileID: 1580447920}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 80001400
+      - X: 199998608
+        Y: 80001400
+      - X: 199998608
+        Y: 69998600
+      - X: 210001392
+        Y: 69998600
+  - m_Collider: {fileID: 1779537016}
+    m_ColliderPaths:
+    - - X: 210001392
+        Y: 90001400
+      - X: 199998608
+        Y: 90001400
+      - X: 199998608
+        Y: 79998600
+      - X: 210001392
+        Y: 79998600
+  - m_Collider: {fileID: 1112254776}
+    m_ColliderPaths:
+    - - X: -19998600
+        Y: 70001400
+      - X: -30001400
+        Y: 70001400
+      - X: -30001400
+        Y: 59998600
+      - X: -19998600
+        Y: 59998600
+  - m_Collider: {fileID: 1643656753}
+    m_ColliderPaths:
+    - - X: -19998600
+        Y: 80001400
+      - X: -30001400
+        Y: 80001400
+      - X: -30001400
+        Y: 69998600
+      - X: -19998600
+        Y: 69998600
+  - m_Collider: {fileID: 1239316542}
+    m_ColliderPaths:
+    - - X: 190001392
+        Y: 60001400
+      - X: 179998608
+        Y: 60001400
+      - X: 179998608
+        Y: 49998600
+      - X: 190001392
+        Y: 49998600
+  - m_Collider: {fileID: 552834535}
+    m_ColliderPaths:
+    - - X: 150001408
+        Y: 110001400
+      - X: 139998592
+        Y: 110001400
+      - X: 139998592
+        Y: 99998600
+      - X: 150001408
+        Y: 99998600
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 15.000113, y: 9.99986}
+      - {x: 15.000113, y: 11.00014}
+      - {x: 13.99986, y: 11.000111}
+      - {x: 13.999888, y: 9.99986}
+    - - {x: 21.00011, y: -0.00014}
+      - {x: 21.00011, y: 9.00014}
+      - {x: 19.99986, y: 9.000111}
+      - {x: 19.99989, y: -0.00014}
+    - - {x: 13.000111, y: 4.9998603}
+      - {x: 13.000111, y: 8.00014}
+      - {x: 11.99986, y: 8.000111}
+      - {x: 11.99983, y: 6.00014}
+      - {x: -1.99986, y: 6.0001698}
+      - {x: -1.9998893, y: 8.00014}
+      - {x: -3.00014, y: 8.000111}
+      - {x: -3.0001109, y: 4.9998603}
+    - - {x: 19.00011, y: 4.9998603}
+      - {x: 19.00011, y: 6.00014}
+      - {x: 17.99986, y: 6.000111}
+      - {x: 17.99989, y: 4.9998603}
+    - - {x: 17.00011, y: -0.00014}
+      - {x: 17.00011, y: 1.0001401}
+      - {x: 11.99986, y: 1.0001107}
+      - {x: 11.999889, y: -0.00014}
+    - - {x: 10.000111, y: -0.00014}
+      - {x: 10.000111, y: 1.0001401}
+      - {x: 2.99986, y: 1.0001107}
+      - {x: 2.9998891, y: -0.00014}
+    - - {x: 1.0001107, y: -0.00014}
+      - {x: 1.0001107, y: 1.0001401}
+      - {x: -6.00014, y: 1.0001107}
+      - {x: -6.000111, y: -0.00014}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1157316168}
+--- !u!50 &1157316173
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157316168}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1181948416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4562,6 +5343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4580,7 +5365,7 @@ GameObject:
   - component: {fileID: 1201387612}
   - component: {fileID: 1201387611}
   - component: {fileID: 1201387610}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4775,6 +5560,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1239316542 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 2054184369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1242964520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4788,7 +5578,7 @@ GameObject:
   - component: {fileID: 1242964524}
   - component: {fileID: 1242964523}
   - component: {fileID: 1242964522}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5040,6 +5830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5049,6 +5843,16 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144044502133557504, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
   m_PrefabInstance: {fileID: 1256394326}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1265504588 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 937054960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1268316967 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1494965674}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1283935077
 PrefabInstance:
@@ -5102,6 +5906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5120,7 +5928,7 @@ GameObject:
   - component: {fileID: 1293545916}
   - component: {fileID: 1293545915}
   - component: {fileID: 1293545914}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5333,7 +6141,7 @@ GameObject:
   - component: {fileID: 1321579830}
   - component: {fileID: 1321579829}
   - component: {fileID: 1321579828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5541,7 +6349,7 @@ GameObject:
   - component: {fileID: 1323854294}
   - component: {fileID: 1323854293}
   - component: {fileID: 1323854292}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5736,6 +6544,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1355558627 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 782166080533556562, guid: 31f0ba62ab4306549a387c3c77dd6c31, type: 3}
+  m_PrefabInstance: {fileID: 1536008812}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1369907261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5788,6 +6601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5797,6 +6614,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144044502133557504, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
   m_PrefabInstance: {fileID: 1181948416}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1393073096 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 371897339}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1399084172
 PrefabInstance:
@@ -5850,11 +6672,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+--- !u!61 &1462887808 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1283935077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1465567547
 GameObject:
   m_ObjectHideFlags: 0
@@ -5868,7 +6699,7 @@ GameObject:
   - component: {fileID: 1465567551}
   - component: {fileID: 1465567550}
   - component: {fileID: 1465567549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6115,14 +6946,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+--- !u!61 &1499360128 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1832581495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1505428958 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 2136755232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1505428962 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 2136755232}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535897076
@@ -6138,7 +6983,7 @@ GameObject:
   - component: {fileID: 1535897080}
   - component: {fileID: 1535897079}
   - component: {fileID: 1535897078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6403,6 +7248,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4144044502133557504, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
   m_PrefabInstance: {fileID: 1057102276}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1557765939 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 443385881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1558969453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,7 +7266,7 @@ GameObject:
   - component: {fileID: 1558969457}
   - component: {fileID: 1558969456}
   - component: {fileID: 1558969455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6624,7 +7474,7 @@ GameObject:
   - component: {fileID: 1580447920}
   - component: {fileID: 1580447919}
   - component: {fileID: 1580447918}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6871,6 +7721,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6894,7 +7748,7 @@ GameObject:
   - component: {fileID: 1643656753}
   - component: {fileID: 1643656752}
   - component: {fileID: 1643656751}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7167,7 +8021,7 @@ GameObject:
   - component: {fileID: 1761105242}
   - component: {fileID: 1761105241}
   - component: {fileID: 1761105240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7362,6 +8216,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &1764570683 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 514216562}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1779537012
 GameObject:
   m_ObjectHideFlags: 0
@@ -7375,7 +8234,7 @@ GameObject:
   - component: {fileID: 1779537016}
   - component: {fileID: 1779537015}
   - component: {fileID: 1779537014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7575,6 +8434,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 1105991252}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &1789151907 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 1105991252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1790952526 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 529640636}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1798176647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4144044502133557504, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
@@ -7637,6 +8506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7693,6 +8566,10 @@ PrefabInstance:
     - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
       propertyPath: m_Name
       value: FloatingBuzzsawBig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7751,6 +8628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7759,6 +8640,11 @@ PrefabInstance:
 --- !u!4 &1838084864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2694319440098653203, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+  m_PrefabInstance: {fileID: 281327580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1838084868 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5409158474163746660, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
   m_PrefabInstance: {fileID: 281327580}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1850325814 stripped
@@ -7818,6 +8704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7875,6 +8765,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 6064647260927637163, guid: c6807d66f42a6f64b9172c8ddf56dfa9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7893,7 +8787,7 @@ GameObject:
   - component: {fileID: 1990690804}
   - component: {fileID: 1990690803}
   - component: {fileID: 1990690802}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8145,6 +9039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pre Painted Orange Tile
       objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8160,6 +9058,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2071970075}
   - component: {fileID: 2071970074}
+  - component: {fileID: 2071970077}
+  - component: {fileID: 2071970076}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -8195,6 +9095,78 @@ Transform:
   - {fileID: 1157316169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!66 &2071970076
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071970073}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 2071970073}
+--- !u!50 &2071970077
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071970073}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2107794531
 GameObject:
   m_ObjectHideFlags: 0
@@ -8208,7 +9180,7 @@ GameObject:
   - component: {fileID: 2107794535}
   - component: {fileID: 2107794534}
   - component: {fileID: 2107794533}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tile(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8454,6 +9426,10 @@ PrefabInstance:
     - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
       propertyPath: m_Name
       value: Pre Painted Orange Tile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7921659415022297917, guid: b7852f8635cec3e42898c52c65fccd67, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
