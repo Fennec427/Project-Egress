@@ -23,16 +23,19 @@ public class PaintGun : MonoBehaviour
 
         Vector2 direction = worldMousePos - parent.transform.position;
         Quaternion targetRotation = Quaternion.FromToRotation(Vector3.up, direction);
-        parent.transform.rotation = Quaternion.Slerp(parent.transform.rotation, targetRotation, 10f * Time.deltaTime);
+        parent.transform.rotation = Quaternion.Slerp(parent.transform.rotation, targetRotation, 50f * Time.deltaTime);
 
-        print(parent.transform.eulerAngles.z);
         if(parent.transform.rotation.eulerAngles.z > 0 && parent.transform.rotation.eulerAngles.z < 180) sr.flipY = true;
         else sr.flipY = false;
     }
 
     public void UpdatePaint(int newPaint)
     {
-        if(newPaint <= sprites.Length - 1) Debug.LogError("Invalid ");
+        if(newPaint > sprites.Length - 1)
+        {
+            Debug.LogError("Invalid paint number");
+            return;
+        }
         paintType = newPaint;
         sr.sprite = sprites[newPaint];
     }

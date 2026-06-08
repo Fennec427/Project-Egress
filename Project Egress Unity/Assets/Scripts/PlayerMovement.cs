@@ -276,7 +276,6 @@ public class PlayerMovement : MonoBehaviour
 
                         if(colTile.tileName == "green")
                         {
-                            print("a");
                             Vector2 collisionDirection = contact.normal;
 
                             Quaternion newRotation;
@@ -373,7 +372,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
-                print("b");
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
