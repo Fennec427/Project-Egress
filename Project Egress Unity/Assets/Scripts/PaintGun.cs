@@ -27,6 +27,11 @@ public class PaintGun : MonoBehaviour
 
         if(parent.transform.rotation.eulerAngles.z > 0 && parent.transform.rotation.eulerAngles.z < 180) sr.flipY = true;
         else sr.flipY = false;
+
+        if (Mouse.current.leftButton.wasPressedThisFrame && false)
+        {
+            print("a");
+        }
     }
 
     public void UpdatePaint(int newPaint)
