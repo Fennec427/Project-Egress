@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     [Tooltip("DO NOT CHANGE, list of sprites to randomize through")] public Sprite[] tiles;
     [Tooltip("Important for special tiles")] public string tileName;
     [SerializeField] [Tooltip("Checkmark this if this tile does not apply special effects")] private bool normal;
+    public bool Normal => normal;
 
     [Header("Red Tile Stats")]
     [SerializeField] [Tooltip("Sets the new max speed of the player after they touch the tile")] private float speedBoost = 10f;
