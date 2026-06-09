@@ -253,17 +253,31 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if(collider == null) continue;
                     //print(collider.gameObject.name);
+
                     Tile colTile = collider.GetComponent<Tile>();
+                    int droopPaint;
+                    if(collider.gameObject.TryGetComponent<PaintDroop>(out PaintDroop paintDroop))
+                    {
+                        //print(collider.gameObject.transform.parent.name);
+                        droopPaint = paintDroop.CurrentPaint;
+                        colTile = collider.gameObject.transform.parent.gameObject.GetComponent<Tile>();
+                    }
+                    else
+                    {
+                        droopPaint = -1;
+                    }
+                    
                     if(colTile != null)
                     {
-                        if(colTile.tileName == "red")
+                        //print(droopPaint);
+                        if(colTile.tileName == "red" || droopPaint == 0)
                         {
                             moveSpeed = colTile.SpeedBoost;
                             speedBoost = true;
                         }
                         else speedBoost = false;
 
-                        if(colTile.tileName == "orange")
+                        if(colTile.tileName == "orange" || droopPaint == 1)
                         {
                             if(colTile.gameObject.transform.parent == null) continue;
                             if(!stopOrangeBounce && stopOrangeBounceTime < 0f)
@@ -274,7 +288,7 @@ public class PlayerMovement : MonoBehaviour
                             }
                         }
 
-                        if(colTile.tileName == "green")
+                        if(colTile.tileName == "green" || droopPaint == 2)
                         {
                             Vector2 collisionDirection = contact.normal;
 

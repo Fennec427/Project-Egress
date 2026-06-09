@@ -52,8 +52,16 @@ public class Tile : MonoBehaviour
 
     public void Paint(int paintType, Vector3 rotation)
     {
+        foreach(Transform child in transform)
+        {
+            if(child.rotation.eulerAngles == Quaternion.Euler(rotation).eulerAngles)
+            {
+                Destroy(child.gameObject);
+            }
+        }
         PaintDroop droop = Instantiate(paintDroop);
         droop.Initialize(paintType, rotation, transform.position);
+        droop.gameObject.transform.SetParent(gameObject.transform, true);
         GameManager.activePaintDroops.Add(droop.gameObject);
     }
 }

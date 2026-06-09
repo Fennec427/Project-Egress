@@ -159,7 +159,7 @@ MonoBehaviour:
   tileName: tile
   normal: 1
   speedBoost: 10
-  bounceForce: 3
+  bounceForce: 10
   maxBounceForce: 10
   movementDisableTime: 0.07
   paintDroop: {fileID: 7261416249689350650, guid: 96f5680853e63d543a7a3504d2324d93, type: 3}
