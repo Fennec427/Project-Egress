@@ -276,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
 
                         if(colTile.tileName == "green")
                         {
-                            print("a");
+                            //print("a");
                             Vector2 collisionDirection = contact.normal;
 
                             Quaternion newRotation;
