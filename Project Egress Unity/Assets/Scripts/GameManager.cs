@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -11,6 +13,9 @@ public class GameManager : MonoBehaviour
     private InputAction jump;
     public Tilemap map;
     public TileBase toPlace;
+
+    public static HashSet<GameObject> activePaintballs = new HashSet<GameObject>();
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -39,6 +44,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void PlayerDied()
     {
+        foreach (var clone in activePaintballs)
+        {
+            Destroy(clone);
+        }
+        activePaintballs.Clear();
         SpawnPlayer();
     }
     void SpawnPlayer()

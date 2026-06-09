@@ -276,7 +276,6 @@ public class PlayerMovement : MonoBehaviour
 
                         if(colTile.tileName == "green")
                         {
-                            print("a");
                             Vector2 collisionDirection = contact.normal;
 
                             Quaternion newRotation;
@@ -290,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
                                 if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
                                 else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
                             }
-                            if(newRotation != transform.rotation)
+                            if(newRotation.eulerAngles.z != transform.rotation.eulerAngles.z)
                             {
                                 transform.rotation = newRotation;
                                 movementDisabled = colTile.MovementDisableTime;
@@ -373,7 +372,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
-                print("b");
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
