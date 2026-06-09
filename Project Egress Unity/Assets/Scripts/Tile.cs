@@ -23,6 +23,9 @@ public class Tile : MonoBehaviour
     [Header("Green Tile Stats")]
     [SerializeField] [Tooltip("How long the player will stop accepting input for, to counteract players walking right off after rotation")] private float movementDisableTime = 0.07f;
     public float MovementDisableTime => movementDisableTime;
+
+    [Header("Painting")]
+    [SerializeField] private PaintDroop paintDroop;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -42,6 +45,15 @@ public class Tile : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = tiles[2]; // Rusted tile
             }
+            //paintIndex[0] = new object[] {redPaint};
+            //print(((Sprite[])paintIndex[0][0]).Length);
         }
+    }
+
+    public void Paint(int paintType, Vector3 rotation)
+    {
+        PaintDroop droop = Instantiate(paintDroop);
+        droop.Initialize(paintType, rotation, transform.position);
+        GameManager.activePaintDroops.Add(droop.gameObject);
     }
 }

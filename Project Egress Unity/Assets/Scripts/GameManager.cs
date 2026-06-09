@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public TileBase toPlace;
 
     public static HashSet<GameObject> activePaintballs = new HashSet<GameObject>();
+    public static HashSet<GameObject> activePaintDroops = new HashSet<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void UpdateRespawnPoint(UnityEngine.Vector3 newPosition)
@@ -47,6 +48,11 @@ public class GameManager : MonoBehaviour
             Destroy(clone);
         }
         activePaintballs.Clear();
+        foreach(var clone in activePaintDroops)
+        {
+            Destroy(clone);
+        }
+        activePaintDroops.Clear();
         SpawnPlayer();
     }
     void SpawnPlayer()
