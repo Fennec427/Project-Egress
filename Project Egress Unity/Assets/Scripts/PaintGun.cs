@@ -8,6 +8,7 @@ public class PaintGun : MonoBehaviour
     SpriteRenderer sr;
     private int paintType = 0;
     [SerializeField] private Paintball paintballObj;
+    public bool switchingPaint = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,11 +30,12 @@ public class PaintGun : MonoBehaviour
         if(parent.transform.rotation.eulerAngles.z > 0 && parent.transform.rotation.eulerAngles.z < 180) sr.flipY = true;
         else sr.flipY = false;
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !switchingPaint)
         {
             Paintball paintball = Instantiate(paintballObj);
             paintball.SpriteValue = paintType;
-            paintball.Initialize(direction, 10f);
+            paintball.Initialize(direction, 10f, transform.position);
+            GameManager.activePaintballs.Add(paintball.gameObject);
         }
     }
 

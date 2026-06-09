@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Paintball : MonoBehaviour
 {
@@ -15,7 +18,6 @@ public class Paintball : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(value), $"Sprite value must be at least 0 and at most {sprites.Length - 1}");
             else
                 _spriteValue = value;
-                print(_spriteValue);
         }
     }
     private SpriteRenderer sr;
@@ -24,19 +26,22 @@ public class Paintball : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //
+    }
+
+    public void Initialize(Vector2 direction, float speed, Vector3 goTo)
+    {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
         sr.enabled = false;
         rb.simulated = false;
-        print(sprites.Length);
-    }
 
-    public void Initialize(Vector2 direction, float speed)
-    {
         sr.sprite = sprites[_spriteValue];
         moveSpeed = speed;
         gameObject.transform.up = direction.normalized;
+
+        gameObject.transform.position = goTo;
 
         sr.enabled = true;
         rb.simulated = true;
@@ -47,5 +52,30 @@ public class Paintball : MonoBehaviour
     void Update()
     {
         
+    }
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Collider2D[] colliders = new Collider2D[10];
+        if(collision.gameObject.TryGetComponent<Tilemap>(out _))
+        {
+            ContactPoint2D contact = collision.GetContact(0);
+            Vector3 contactPoint = contact.point - contact.normal * 0.03f;
+            int pointHits = Physics2D.OverlapCircle(contactPoint, 0.04f, ContactFilter2D.noFilter, colliders);
+            foreach (var collider in colliders)
+            {
+                if(collider == null) continue;
+
+                if(collider.gameObject.TryGetComponent<Tile>(out Tile tile))
+                {
+                    if (tile.Normal)
+                    {
+                        print("a");
+                    }
+                }
+            }
+        }
+        GameManager.activePaintballs.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

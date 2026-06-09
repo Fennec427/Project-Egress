@@ -26,13 +26,15 @@ public class PaintSwitch2 : MonoBehaviour
             if (Keyboard.current.eKey.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
             {
                 Time.timeScale = 0.5f;
-                GetComponent<SpriteRenderer>().enabled = true;        
+                GetComponent<SpriteRenderer>().enabled = true;
+                paintGun.switchingPaint = true;
             }
             if (Keyboard.current.eKey.wasReleasedThisFrame || Mouse.current.rightButton.wasReleasedThisFrame)
             {
                 Time.timeScale = 1f;
                 GetComponent<SpriteRenderer>().enabled = false;
                 if(paintGun != null) paintGun.UpdatePaint(paintType);
+                paintGun.switchingPaint = false;
             }
         }
         if (Keyboard.current.eKey.isPressed || Mouse.current.rightButton.isPressed)
