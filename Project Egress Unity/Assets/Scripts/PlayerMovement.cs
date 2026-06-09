@@ -295,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
                             }
-                            greenTileTime = 0.25f;
+                            greenTileTime = 0.50f;
                         }
                     }
                     
@@ -411,7 +411,7 @@ public class PlayerMovement : MonoBehaviour
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
                 }
-                greenTileTime = 0.25f;
+                greenTileTime = 0.50f;
             }
         }
     }
