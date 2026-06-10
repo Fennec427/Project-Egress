@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
     private float stopOrangeBounceTime = 0f;
     private Vector2 currentVelocity = new Vector2(0,0);
     private float greenTileTime = 0f;
+    private bool greenTileReset = true;
+    private float lastRotationTime = -1f;
+    private float greenTileKill = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -151,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
         movementDisabled -= Time.deltaTime;
         stopOrangeBounceTime -= Time.deltaTime;
         greenTileTime -= Time.deltaTime;
+        greenTileKill -= Time.deltaTime;
 
         if (!speedBoost)
         {
@@ -164,10 +168,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(greenTileTime < 0f)
+        if(greenTileTime < 0f && !greenTileReset)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             DisableJumps(0.07f, true);
+        }
+        if(greenTileKill < 0f) greenTileKill = 0f;
+        if(greenTileKill > 5f)
+        {
+            FindAnyObjectByType<GameManager>().PlayerDied();
         }
 
         //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
@@ -290,7 +299,14 @@ public class PlayerMovement : MonoBehaviour
 
                         if(colTile.tileName == "green" || droopPaint == 2)
                         {
+                            greenTileReset = false;
                             Vector2 collisionDirection = contact.normal;
+
+                            if(Time.time - lastRotationTime < 0.05f)
+                            {
+                                greenTileKill += 0.1f;
+                            }
+                            lastRotationTime = Time.time;
 
                             Quaternion newRotation;
                             if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
