@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour
     [Tooltip("DO NOT CHANGE, list of sprites to randomize through")] public Sprite[] tiles;
     [Tooltip("Important for special tiles")] public string tileName;
     [SerializeField] [Tooltip("Checkmark this if this tile does not apply special effects")] private bool normal;
+    public bool Normal => normal;
 
     [Header("Red Tile Stats")]
     [SerializeField] [Tooltip("Sets the new max speed of the player after they touch the tile")] private float speedBoost = 10f;
@@ -22,6 +23,9 @@ public class Tile : MonoBehaviour
     [Header("Green Tile Stats")]
     [SerializeField] [Tooltip("How long the player will stop accepting input for, to counteract players walking right off after rotation")] private float movementDisableTime = 0.07f;
     public float MovementDisableTime => movementDisableTime;
+
+    [Header("Painting")]
+    [SerializeField] private PaintDroop paintDroop;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,6 +45,23 @@ public class Tile : MonoBehaviour
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = tiles[2]; // Rusted tile
             }
+            //paintIndex[0] = new object[] {redPaint};
+            //print(((Sprite[])paintIndex[0][0]).Length);
         }
+    }
+
+    public void Paint(int paintType, Vector3 rotation)
+    {
+        foreach(Transform child in transform)
+        {
+            if(child.rotation.eulerAngles == Quaternion.Euler(rotation).eulerAngles)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        PaintDroop droop = Instantiate(paintDroop);
+        droop.Initialize(paintType, rotation, transform.position);
+        droop.gameObject.transform.SetParent(gameObject.transform, true);
+        GameManager.activePaintDroops.Add(droop.gameObject);
     }
 }

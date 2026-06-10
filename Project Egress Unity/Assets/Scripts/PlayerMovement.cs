@@ -117,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Proceed");
         }
 
-        jumpValue = 0;
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && Vector2.Dot(rb.linearVelocity, transform.up) <= 0 && enableCoyote)))
         {
@@ -179,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
         if(jumpValue == 1)
         {
             verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
+            jumpValue = 0;
         }
 
         Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
@@ -253,17 +253,31 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if(collider == null) continue;
                     //print(collider.gameObject.name);
+
                     Tile colTile = collider.GetComponent<Tile>();
+                    int droopPaint;
+                    if(collider.gameObject.TryGetComponent<PaintDroop>(out PaintDroop paintDroop))
+                    {
+                        //print(collider.gameObject.transform.parent.name);
+                        droopPaint = paintDroop.CurrentPaint;
+                        colTile = collider.gameObject.transform.parent.gameObject.GetComponent<Tile>();
+                    }
+                    else
+                    {
+                        droopPaint = -1;
+                    }
+                    
                     if(colTile != null)
                     {
-                        if(colTile.tileName == "red")
+                        //print(droopPaint);
+                        if(colTile.tileName == "red" || droopPaint == 0)
                         {
                             moveSpeed = colTile.SpeedBoost;
                             speedBoost = true;
                         }
                         else speedBoost = false;
 
-                        if(colTile.tileName == "orange")
+                        if(colTile.tileName == "orange" || droopPaint == 1)
                         {
                             if(colTile.gameObject.transform.parent == null) continue;
                             if(!stopOrangeBounce && stopOrangeBounceTime < 0f)
@@ -274,9 +288,8 @@ public class PlayerMovement : MonoBehaviour
                             }
                         }
 
-                        if(colTile.tileName == "green")
+                        if(colTile.tileName == "green" || droopPaint == 2)
                         {
-                            //print("a");
                             Vector2 collisionDirection = contact.normal;
 
                             Quaternion newRotation;
@@ -290,13 +303,13 @@ public class PlayerMovement : MonoBehaviour
                                 if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
                                 else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
                             }
-                            if(newRotation != transform.rotation)
+                            if(newRotation.eulerAngles.z != transform.rotation.eulerAngles.z)
                             {
                                 transform.rotation = newRotation;
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
                             }
-                            greenTileTime = 0.25f;
+                            greenTileTime = 0.50f;
                         }
                     }
                     
@@ -373,7 +386,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
-                print("b");
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
@@ -413,7 +425,7 @@ public class PlayerMovement : MonoBehaviour
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
                 }
-                greenTileTime = 0.25f;
+                greenTileTime = 0.50f;
             }
         }
     }
