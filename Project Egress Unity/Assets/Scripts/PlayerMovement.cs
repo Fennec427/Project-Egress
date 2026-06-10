@@ -177,6 +177,8 @@ public class PlayerMovement : MonoBehaviour
         if(greenTileKill > 5f)
         {
             FindAnyObjectByType<GameManager>().PlayerDied();
+            greenTileKill = 0f;
+            greenTileTime = -1f;
         }
 
         //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
@@ -302,12 +304,6 @@ public class PlayerMovement : MonoBehaviour
                             greenTileReset = false;
                             Vector2 collisionDirection = contact.normal;
 
-                            if(Time.time - lastRotationTime < 0.05f)
-                            {
-                                greenTileKill += 0.1f;
-                            }
-                            lastRotationTime = Time.time;
-
                             Quaternion newRotation;
                             if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
                             {
@@ -324,6 +320,11 @@ public class PlayerMovement : MonoBehaviour
                                 transform.rotation = newRotation;
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
+                                if(Time.time - lastRotationTime < 0.05f)
+                                {
+                                    greenTileKill += 0.1f;
+                                }
+                                lastRotationTime = Time.time;
                             }
                             greenTileTime = 0.50f;
                         }
@@ -402,6 +403,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
+                greenTileReset = false;
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
