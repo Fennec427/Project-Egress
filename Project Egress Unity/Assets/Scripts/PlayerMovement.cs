@@ -117,7 +117,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Proceed");
         }
 
-        jumpValue = 0;
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && Vector2.Dot(rb.linearVelocity, transform.up) <= 0 && enableCoyote)))
         {
@@ -179,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
         if(jumpValue == 1)
         {
             verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
+            jumpValue = 0;
         }
 
         Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
