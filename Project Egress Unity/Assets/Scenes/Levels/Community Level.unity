@@ -67818,7 +67818,8 @@ PrefabInstance:
       value: PauseCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1879646771254808156, guid: 633432bebf0d373449ff617692ea432d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633432bebf0d373449ff617692ea432d, type: 3}
