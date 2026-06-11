@@ -326,7 +326,7 @@ public class PlayerMovement : MonoBehaviour
                                 }
                                 lastRotationTime = Time.time;
                             }
-                            greenTileTime = 0.50f;
+                            greenTileTime = 0.25f;
                         }
                     }
                     
@@ -443,7 +443,7 @@ public class PlayerMovement : MonoBehaviour
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
                 }
-                greenTileTime = 0.50f;
+                greenTileTime = 0.25f;
             }
         }
     }

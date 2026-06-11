@@ -18,15 +18,17 @@ public class GameManager : MonoBehaviour
     public static HashSet<GameObject> activePaintDroops = new HashSet<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        Time.timeScale = 1;
+        jump = InputSystem.actions.FindAction("Jump");
+    }
+
     public void UpdateRespawnPoint(UnityEngine.Vector3 newPosition)
     {
         Respawn.position = newPosition;
     }
     
-    void Start()
-    {
-        jump = InputSystem.actions.FindAction("Jump");
-    }
     void Update()
     {
         /*
