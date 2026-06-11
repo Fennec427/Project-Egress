@@ -172,6 +172,7 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             DisableJumps(0.07f, true);
+            GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
         }
         if(greenTileKill < 0f) greenTileKill = 0f;
         if(greenTileKill > 5f)
@@ -304,20 +305,20 @@ public class PlayerMovement : MonoBehaviour
                             greenTileReset = false;
                             Vector2 collisionDirection = contact.normal;
 
-                            Quaternion newRotation;
+                            Vector3 newRotation;
                             if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
                             {
-                                if(collisionDirection.x > 0) newRotation = Quaternion.Euler(0, 0, -90f); //collided right, rotate z to -90 deg
-                                else newRotation = Quaternion.Euler(0, 0, 90f); //collided left, rotate z to 90 deg
+                                if(collisionDirection.x > 0) newRotation = new Vector3(0, 0, -90f); //collided right, rotate z to -90 deg
+                                else newRotation = new Vector3(0, 0, 90f); //collided left, rotate z to 90 deg
                             }
                             else
                             {
-                                if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
-                                else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
+                                if(collisionDirection.y > 0) newRotation = new Vector3(0, 0, 0); //collided up, reset z to 0 deg
+                                else newRotation = new Vector3(0, 0, 180f); //collided down, rotate z to 180 deg
                             }
-                            if(newRotation.eulerAngles.z != transform.rotation.eulerAngles.z)
+                            if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
                             {
-                                transform.rotation = newRotation;
+                                transform.rotation = Quaternion.Euler(newRotation);
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
                                 if(Time.time - lastRotationTime < 0.05f)
@@ -325,6 +326,7 @@ public class PlayerMovement : MonoBehaviour
                                     greenTileKill += 0.1f;
                                 }
                                 lastRotationTime = Time.time;
+                                GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
                             }
                             greenTileTime = 0.25f;
                         }
@@ -409,19 +411,19 @@ public class PlayerMovement : MonoBehaviour
                 //print(collision.GetContact(0).normal);
                 Vector2 collisionDirection = collision.GetContact(0).normal;
 
-                Quaternion newRotation;
+                Vector3 newRotation;
 
                 if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
                 {
                     if(collisionDirection.x > 0)
                     {
                         //collided right, rotate z to -90 deg
-                        newRotation = Quaternion.Euler(0, 0, -90f);
+                        newRotation = new Vector3(0, 0, -90f);
                     }
                     else
                     {
                         //collided left, rotate z to 90 deg
-                        newRotation = Quaternion.Euler(0, 0, 90f);
+                        newRotation = new Vector3(0, 0, 90f);
                     }
                 }
                 else
@@ -429,19 +431,25 @@ public class PlayerMovement : MonoBehaviour
                     if(collisionDirection.y > 0)
                     {
                         //collided up, reset z to 0 deg
-                        newRotation = Quaternion.Euler(0, 0, 0);
+                        newRotation = new Vector3(0, 0, 0);
                     }
                     else
                     {
                         //collided down, rotate z to 180 deg
-                        newRotation = Quaternion.Euler(0, 0, 180f);
+                        newRotation = new Vector3(0, 0, 180f);
                     }
                 }
-                if(newRotation != transform.rotation)
+                if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
                 {
-                    transform.rotation = newRotation;
+                    transform.rotation = Quaternion.Euler(newRotation);
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
+                    if(Time.time - lastRotationTime < 0.05f)
+                    {
+                        greenTileKill += 0.1f;
+                    }
+                    lastRotationTime = Time.time;
+                    GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
                 }
                 greenTileTime = 0.25f;
             }

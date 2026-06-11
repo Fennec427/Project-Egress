@@ -42,7 +42,7 @@ public class PaintDroop : MonoBehaviour
         paintIndex[2] = new object[] {greenPaint};
 
         gameObject.transform.rotation = Quaternion.Euler(rotation);
-        gameObject.transform.position = goTo;
+        gameObject.transform.position = new Vector3(goTo.x, goTo.y, -2f);
         CurrentPaint = paintType;
 
         Sprite[] paintColors = (Sprite[])paintIndex[_currentPaint][0];
