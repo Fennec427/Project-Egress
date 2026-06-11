@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloatingBuzzsawBig
       objectReference: {fileID: 0}
+    - target: {fileID: 3263589556525711180, guid: 09630dc25c391d7448dabe2805491155, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5306129807716330189, guid: 09630dc25c391d7448dabe2805491155, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.5

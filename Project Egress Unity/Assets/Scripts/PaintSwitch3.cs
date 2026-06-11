@@ -7,19 +7,36 @@ public class PaintSwitch3 : MonoBehaviour
     public bool canpaint = true;
     [SerializeField] GameObject centerPoint;
     [SerializeField] Sprite[] sprites;
+
+    private int paintType = 0;
+    public int PaintType => paintType;
+    private PaintGun paintGun;
+
+    void Start()
+    {
+        PaintGun[] components = transform.parent.transform.parent.GetComponentsInChildren<PaintGun>();
+        if(components.Length != 0) paintGun = components[0];
+    }
+    
     void Update()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if(Time.timeScale != 0f)
         {
-            Time.timeScale = 0.5f;
-            GetComponent<SpriteRenderer>().enabled = true;        
+            if (Keyboard.current.eKey.wasPressedThisFrame || Mouse.current.rightButton.wasPressedThisFrame)
+            {
+                Time.timeScale = 0.5f;
+                GetComponent<SpriteRenderer>().enabled = true;
+                paintGun.switchingPaint = true;
+            }
+            if (Keyboard.current.eKey.wasReleasedThisFrame || Mouse.current.rightButton.wasReleasedThisFrame)
+            {
+                Time.timeScale = 1f;
+                GetComponent<SpriteRenderer>().enabled = false;
+                if(paintGun != null) paintGun.UpdatePaint(paintType);
+                paintGun.switchingPaint = false;
+            }
         }
-        if (Keyboard.current.eKey.wasReleasedThisFrame)
-        {
-            Time.timeScale = 1f;
-            GetComponent<SpriteRenderer>().enabled = false; 
-        }
-        if (Keyboard.current.eKey.isPressed)
+        if (Keyboard.current.eKey.isPressed || Mouse.current.rightButton.isPressed)
         {
             Vector2 screenPos = Mouse.current.position.ReadValue();
             Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 10f));
@@ -28,14 +45,17 @@ public class PaintSwitch3 : MonoBehaviour
             if(relativePos.y >= 0.2f)
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[0];
+                paintType = 0;
             }
             else if(relativePos.x >= 0f)
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[1];
+                paintType = 1;
             }
             else
             {
                 GetComponent<SpriteRenderer>().sprite = sprites[2];
+                paintType = 2;
             }
         }
     }

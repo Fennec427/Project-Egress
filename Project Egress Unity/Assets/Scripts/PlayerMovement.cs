@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,16 +14,23 @@ public class PlayerMovement : MonoBehaviour
 
     // Movement stats
     [Header("Movement Stats")]
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 5f;
+    [SerializeField] [Tooltip("The player's movement speed")] private float moveSpeed = 5f;
+    [SerializeField] [Tooltip("The positive Y force applied to the player when they jump")] private float jumpForce = 5f;
     private Rigidbody2D rb; // Used to set movement
     private bool canJump;
     private float coyoteTime = 0f; // default value at 0 to prevent players from possibly jumping immediately upon level load
-    [SerializeField] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
+    [SerializeField] [Tooltip("How much time after leaving a platform the player has before jump is disabled")] [Min(0f)] private float coyoteLenience = 0.2f; // time before you're no longer Wile E Coyote
     private float jumpBuffer = 0f; // time 
     [SerializeField] private float jumpLenience = 0.07f; // time before buffer expires
-    [SerializeField] private PhysicsMaterial2D[] movementMaterials;
+    [SerializeField] [Tooltip("DO NOT CHANGE")] private PhysicsMaterial2D[] movementMaterials;
     [SerializeField] private float slipperyness = 0.5f;
+    private bool speedBoost = false;
+    private Vector2 moveValue;
+    private float jumpValue;
+    [SerializeField] private float gravityWeight = -9.81f; //how heavy gravity is
+    private Vector2 gravity;
+    public Vector2 Gravity => gravity; //make the player's gravity publically accessible
+    private float movementDisabled = 0f;
 
     // Ground detection
     [Header("Ground Checking")]
@@ -29,9 +40,18 @@ public class PlayerMovement : MonoBehaviour
     private float noJumpCheck = 0f;
 
     [Header("Misc")]
-    [SerializeField] private bool enableCoyote = true;
-    [SerializeField] private bool enableJumpBuffer = true;
+    [SerializeField] [Tooltip("Enables coyote time")] private bool enableCoyote = true;
+    [SerializeField] [Tooltip("Enables jump buffering")] private bool enableJumpBuffer = true;
     public Animator animator;
+    readonly Collider2D[] results = new Collider2D[10];
+    readonly List<ContactPoint2D> contactPoints = new List<ContactPoint2D>();
+    private bool stopOrangeBounce = true;
+    private float stopOrangeBounceTime = 0f;
+    private Vector2 currentVelocity = new Vector2(0,0);
+    private float greenTileTime = 0f;
+    private bool greenTileReset = true;
+    private float lastRotationTime = -1f;
+    private float greenTileKill = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             animator = GetComponent<Animator>();
         }
 
+        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -81,23 +102,16 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             canJump = false;
+            speedBoost = false;
         }
 
-        Vector2 moveValue = move.ReadValue<Vector2>();
-        if(moveValue.x != 0)
-        {
-            rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
-        }
-        else
-        {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x * slipperyness, rb.linearVelocity.y);
-        }
+        moveValue = move.ReadValue<Vector2>();
         
-        if(rb.linearVelocity.x>=0.2)
+        if(Vector2.Dot(rb.linearVelocity, transform.right) >= 0.2)
         {
             animator.SetTrigger("right");
         }
-        else if(rb.linearVelocity.x <=-0.2)
+        else if(Vector2.Dot(rb.linearVelocity, transform.right) <= -0.2)
         {
             animator.SetTrigger("left");
         }
@@ -107,13 +121,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
-        if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && rb.linearVelocity.y <= 0 && enableCoyote)))
+        if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && Vector2.Dot(rb.linearVelocity, transform.up) <= 0 && enableCoyote)))
         {
             coyoteTime = 0f;
             jumpBuffer = 0f;
             GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
             noJumpCheck = 0.2f;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            jumpValue = 1;
+            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce); // Jump
+            //rb.linearVelocity = transform.up * jumpForce;
         }
         else if (jump.WasPressedThisFrame()) // input buffer
         {
@@ -135,6 +151,58 @@ public class PlayerMovement : MonoBehaviour
         }
         jumpBuffer -= Time.deltaTime; // constantly reduce
         noJumpCheck -= Time.deltaTime;
+        movementDisabled -= Time.deltaTime;
+        stopOrangeBounceTime -= Time.deltaTime;
+        greenTileTime -= Time.deltaTime;
+        greenTileKill -= Time.deltaTime;
+
+        if (!speedBoost)
+        {
+            if (canJump && moveSpeed > 5f)
+            {
+                moveSpeed -= 0.1f;
+                if (moveSpeed < 5f)
+                {
+                    moveSpeed = 5f;
+                }
+            }
+        }
+
+        if(greenTileTime < 0f && !greenTileReset)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            DisableJumps(0.07f, true);
+            GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
+        }
+        if(greenTileKill < 0f) greenTileKill = 0f;
+        if(greenTileKill > 5f)
+        {
+            FindAnyObjectByType<GameManager>().PlayerDied();
+            greenTileKill = 0f;
+            greenTileTime = -1f;
+        }
+
+        //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
+        gravity = transform.up * gravityWeight;
+        rb.AddForce(gravity, ForceMode2D.Force); //apply gravity
+        
+        Vector2 verticalVelocity = (Vector2)transform.up * Vector2.Dot(rb.linearVelocity, transform.up); //keep vertical velocity
+        if(jumpValue == 1)
+        {
+            verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
+            jumpValue = 0;
+        }
+
+        Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
+        if(moveValue.x != 0)
+        {
+            if(movementDisabled <= 0)
+            {
+                horizontalVelocity = transform.right * moveSpeed * moveValue.x; //set left-right velocity if movement key is pressed
+            }
+        }
+        
+        rb.linearVelocity = horizontalVelocity + verticalVelocity; //add horizontal and vertical velocity variables to get the overall velocity
     }
 
     // Show the detection area when selected in editor
@@ -150,7 +218,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            Object.FindAnyObjectByType<GameManager>().PlayerDied();
+            FindAnyObjectByType<GameManager>().PlayerDied();
         }
     }
     
@@ -162,5 +230,268 @@ public class PlayerMovement : MonoBehaviour
             coyoteTime = -1;
             jumpBuffer = -1;
         }
+    }
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        /*GameObject hitTile = null;
+        if(collision.gameObject.TryGetComponent<TileMapCollision>(out TileMapCollision tilemap))
+        {
+            hitTile = tilemap.GetCollisionLocation(collision);
+            
+        }*/
+
+        Array.Clear(results, 0, results.Length);
+        stopOrangeBounce = false;
+        contactPoints.Clear();
+
+        if(!collision.gameObject.TryGetComponent<Tilemap>(out _) || !collision.gameObject.TryGetComponent<CompositeCollider2D>(out _)) return; //make sure we are getting a Tilemap or CompositeCollider2D, or we exit
+
+        Tilemap tilemap = collision.collider.GetComponent<Tilemap>();
+        if(tilemap != null)
+        {
+            collision.GetContacts(contactPoints);
+            foreach(ContactPoint2D contact in contactPoints)
+            {
+                //print(Vector2.Dot(contact.normal, transform.up));
+                if(Vector2.Dot(contact.normal, transform.up) != 0 && Vector2.Dot(rb.linearVelocity, transform.up) != 0)
+                {
+                    currentVelocity = rb.linearVelocity;
+
+                }
+                Vector3 contactPoint = contact.point - contact.normal * 0.03f;
+                int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
+                //print(pointHits);
+                foreach(var collider in results)
+                {
+                    if(collider == null) continue;
+                    //print(collider.gameObject.name);
+
+                    Tile colTile = collider.GetComponent<Tile>();
+                    int droopPaint;
+                    if(collider.gameObject.TryGetComponent<PaintDroop>(out PaintDroop paintDroop))
+                    {
+                        //print(collider.gameObject.transform.parent.name);
+                        droopPaint = paintDroop.CurrentPaint;
+                        colTile = collider.gameObject.transform.parent.gameObject.GetComponent<Tile>();
+                    }
+                    else
+                    {
+                        droopPaint = -1;
+                    }
+                    
+                    if(colTile != null)
+                    {
+                        //print(droopPaint);
+                        if(colTile.tileName == "red" || droopPaint == 0)
+                        {
+                            moveSpeed = colTile.SpeedBoost;
+                            speedBoost = true;
+                        }
+                        else speedBoost = false;
+
+                        if(colTile.tileName == "orange" || droopPaint == 1)
+                        {
+                            if(colTile.gameObject.transform.parent == null) continue;
+                            if(!stopOrangeBounce && stopOrangeBounceTime < 0f)
+                            {
+                                OrangeTile(collision, colTile, rb.linearVelocity);
+                                stopOrangeBounce = true;
+                                stopOrangeBounceTime = 0.1f;
+                            }
+                        }
+
+                        if(colTile.tileName == "green" || droopPaint == 2)
+                        {
+                            greenTileReset = false;
+                            Vector2 collisionDirection = contact.normal;
+
+                            Vector3 newRotation;
+                            if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
+                            {
+                                if(collisionDirection.x > 0) newRotation = new Vector3(0, 0, -90f); //collided right, rotate z to -90 deg
+                                else newRotation = new Vector3(0, 0, 90f); //collided left, rotate z to 90 deg
+                            }
+                            else
+                            {
+                                if(collisionDirection.y > 0) newRotation = new Vector3(0, 0, 0); //collided up, reset z to 0 deg
+                                else newRotation = new Vector3(0, 0, 180f); //collided down, rotate z to 180 deg
+                            }
+                            if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
+                            {
+                                transform.rotation = Quaternion.Euler(newRotation);
+                                movementDisabled = colTile.MovementDisableTime;
+                                DisableJumps(colTile.MovementDisableTime, true);
+                                if(Time.time - lastRotationTime < 0.05f)
+                                {
+                                    greenTileKill += 0.1f;
+                                }
+                                lastRotationTime = Time.time;
+                                GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
+                            }
+                            greenTileTime = 0.25f;
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if(collision.gameObject.GetComponent<Tilemap>() != null || collision.gameObject.GetComponent<CompositeCollider2D>() != null) return;
+        if(collision.gameObject.TryGetComponent<Tilemap>(out _) || collision.gameObject.TryGetComponent<CompositeCollider2D>(out _))
+        {
+            collision.GetContacts(contactPoints);
+            foreach(ContactPoint2D contact in contactPoints)
+            {
+                Vector3 contactPoint = contact.point - contact.normal * 0.03f;
+                int pointHits = Physics2D.OverlapCircle(contactPoint, 0.05f, ContactFilter2D.noFilter, results);
+                //print(pointHits);
+                foreach(var collider in results)
+                {
+                    if(collider == null) continue;
+                    //print(collider.gameObject.name);
+                    Tile colTile = collider.GetComponent<Tile>();
+                    if(colTile != null)
+                    {
+                        if(colTile.tileName == "orange")
+                        {
+                            if(colTile.gameObject.transform.parent == null) continue;
+                            if(!stopOrangeBounce && stopOrangeBounceTime < 0f)
+                            {
+                                OrangeTile(collision, colTile, collision.relativeVelocity);
+                                stopOrangeBounce = true;
+                                stopOrangeBounceTime = 0.1f;
+                            }
+                        }
+                    }
+                }
+            }
+            return;
+        }
+        if(collision.gameObject.TryGetComponent<Tile>(out Tile tile))
+        {
+            if (tile.tileName == "red") // speed tile
+            {
+                moveSpeed = tile.SpeedBoost;
+                speedBoost = true;
+            }
+            else
+            {
+                speedBoost = false;
+            }
+            if(tile.tileName == "orange")
+            {
+                /*
+                float yVelocity = Mathf.Abs(collision.relativeVelocity.y) + tile.BounceForce;
+                if(yVelocity >= tile.MaxBounceForce)
+                {
+                    yVelocity = tile.MaxBounceForce;
+                }
+                GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+                rb.linearVelocityY = yVelocity;
+                */
+                /*
+                float localUpVelocity = Vector2.Dot(collision.relativeVelocity, transform.up);
+                //float localRightVelocity = Vector2.Dot(collision.relativeVelocity, transform.right);
+                Vector2 newVelocity = transform.up * localUpVelocity + transform.up * tile.BounceForce;
+                if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * tile.MaxBounceForce, transform.up))
+                {
+                    newVelocity = transform.up * tile.MaxBounceForce;
+                }
+                rb.AddForce(newVelocity, ForceMode2D.Impulse);
+                */
+                OrangeTile(collision, tile, collision.relativeVelocity);
+            }
+            else if (tile.tileName == "green")
+            {
+                greenTileReset = false;
+                //rb.gravityScale = 0;
+                //print(transform.InverseTransformPoint(collision.transform.position));
+                //print(collision.GetContact(0).normal);
+                Vector2 collisionDirection = collision.GetContact(0).normal;
+
+                Vector3 newRotation;
+
+                if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
+                {
+                    if(collisionDirection.x > 0)
+                    {
+                        //collided right, rotate z to -90 deg
+                        newRotation = new Vector3(0, 0, -90f);
+                    }
+                    else
+                    {
+                        //collided left, rotate z to 90 deg
+                        newRotation = new Vector3(0, 0, 90f);
+                    }
+                }
+                else
+                {
+                    if(collisionDirection.y > 0)
+                    {
+                        //collided up, reset z to 0 deg
+                        newRotation = new Vector3(0, 0, 0);
+                    }
+                    else
+                    {
+                        //collided down, rotate z to 180 deg
+                        newRotation = new Vector3(0, 0, 180f);
+                    }
+                }
+                if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
+                {
+                    transform.rotation = Quaternion.Euler(newRotation);
+                    movementDisabled = tile.MovementDisableTime;
+                    DisableJumps(tile.MovementDisableTime, true);
+                    if(Time.time - lastRotationTime < 0.05f)
+                    {
+                        greenTileKill += 0.1f;
+                    }
+                    lastRotationTime = Time.time;
+                    GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
+                }
+                greenTileTime = 0.25f;
+            }
+        }
+    }
+
+    private void OrangeTile(Collision2D collision, Tile colTile, Vector2 playerVel)
+    {
+        //float localUpVelocity = 1;
+        //float localUpVelocity = Mathf.Abs(Vector2.Dot(currentRelVelocity, transform.up));
+        if(Vector2.Dot(playerVel, transform.up) == 0) playerVel = currentVelocity;
+
+        float localUpVelocity = Mathf.Abs(Vector2.Dot(playerVel, transform.up));
+        //if(Mathf.FloorToInt(Vector2.Dot(currentRelVelocity, transform.up)) == 0)
+        //print(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y));
+        Vector2 newVelocity;
+        if(Mathf.Round(gameObject.transform.InverseTransformDirection(collision.GetContact(0).normal).y) >= 0)
+        {
+            newVelocity = (Vector2)transform.up * localUpVelocity + (Vector2)transform.up * colTile.BounceForce;
+        }
+        else
+        {
+            newVelocity = ((Vector2)transform.up * localUpVelocity + (Vector2)transform.up * colTile.BounceForce) * -1f;
+        }
+        if(Vector2.Dot(newVelocity, transform.up) > Vector2.Dot(transform.up * colTile.MaxBounceForce, transform.up))
+        {
+            newVelocity = transform.up * colTile.MaxBounceForce;
+        }
+        GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+        rb.linearVelocity = newVelocity;
+        //print(localUpVelocity);
+        //print(newVelocity);
+        
+        /*
+                        float yVelocity = Mathf.Abs(collision.relativeVelocity.y) + colTile.BounceForce;
+                if(yVelocity >= colTile.MaxBounceForce)
+                {
+                    yVelocity = colTile.MaxBounceForce;
+                }
+                GetComponent<CapsuleCollider2D>().sharedMaterial = movementMaterials[1];
+                rb.linearVelocityY = yVelocity;
+                print(yVelocity);
+        */
     }
 }

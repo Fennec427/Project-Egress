@@ -8,13 +8,28 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/Scenes/temp/Level1-pre-alpha-v0.0.1.unity
-    guid: 8c8daa44bbf82bf4f94f34aae28bd127
+  - enabled: 1
+    path: Assets/Scenes/Menu_Test.unity
+    guid: 18af05895cd339a4ab2b5aa2db99055b
+  - enabled: 1
+    path: Assets/Scenes/Menu_Test2.unity
+    guid: f7c86281a401c914b8ee8bda7f42c3e2
   - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: bfd3f06f7b9c2a34f94cdd632b74d3ff
   - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: f3494c23154914343a50378d87462532
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 87419353670d4d64cab4ace6bd77b390
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 01a8a7c87c0e11945a33d3a06f4380ca
+  - enabled: 1
+    path: Assets/Scenes/Levels/Community Level.unity
+    guid: 86a62a1981dc05a4691bfdcf4ee6eccd
+  - enabled: 0
     path: Assets/Scenes/Sandbox.unity
     guid: 35156d46d416c1444b1295c133e260d2
   m_configObjects:
