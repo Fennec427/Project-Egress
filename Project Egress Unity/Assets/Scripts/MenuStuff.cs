@@ -23,4 +23,20 @@ public class MenuStuff : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("Level1");
     }
+    public void Level2()
+    {
+        SceneManager.LoadSceneAsync("Level2");
+    }
+    public void Level3()
+    {
+        SceneManager.LoadSceneAsync("Level3");
+    }
+    public void Level4()
+    {
+        SceneManager.LoadSceneAsync("Level4");
+    }
+    public void CommunityLevel()
+    {
+        SceneManager.LoadSceneAsync("Community Level");
+    }
 }

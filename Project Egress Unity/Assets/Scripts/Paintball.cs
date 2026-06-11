@@ -11,7 +11,7 @@ public class Paintball : MonoBehaviour
     private float moveSpeed;
     public int SpriteValue
     {
-        get {return SpriteValue;}
+        get {return _spriteValue;}
         set
         {
             if(value > sprites.Length - 1 || value < 0)
@@ -70,7 +70,18 @@ public class Paintball : MonoBehaviour
                 {
                     if (tile.Normal)
                     {
-                        print("a");
+                        Vector3 rotation;
+                        if(Mathf.Abs(contact.normal.x) > Mathf.Abs(contact.normal.y))
+                        {
+                            if(contact.normal.x > 0) rotation = new Vector3(0, 0, -90f); //collided right
+                            else rotation = new Vector3(0, 0, 90f); //collided left
+                        }
+                        else
+                        {
+                            if(contact.normal.y > 0) rotation = new Vector3(0, 0, 0); //collided up
+                            else rotation = new Vector3(0, 0, 180f); //collided down
+                        }
+                        tile.Paint(_spriteValue, rotation);
                     }
                 }
             }

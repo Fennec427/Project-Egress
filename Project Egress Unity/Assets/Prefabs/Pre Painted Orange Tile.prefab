@@ -156,9 +156,10 @@ MonoBehaviour:
   tileName: orange
   normal: 0
   speedBoost: 0
-  bounceForce: 5
+  bounceForce: 10
   maxBounceForce: 10
   movementDisableTime: 0.07
+  paintDroop: {fileID: 0}
 --- !u!61 &-713181396522070835
 BoxCollider2D:
   m_ObjectHideFlags: 0

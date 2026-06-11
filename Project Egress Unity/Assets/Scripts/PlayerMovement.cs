@@ -49,6 +49,9 @@ public class PlayerMovement : MonoBehaviour
     private float stopOrangeBounceTime = 0f;
     private Vector2 currentVelocity = new Vector2(0,0);
     private float greenTileTime = 0f;
+    private bool greenTileReset = true;
+    private float lastRotationTime = -1f;
+    private float greenTileKill = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -117,7 +120,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetTrigger("Proceed");
         }
 
-        jumpValue = 0;
         // WasPressedThisFrame is ideal for jumping so it only triggers once per tap
         if ((jump.WasPressedThisFrame() || (jumpBuffer > 0f && enableJumpBuffer)) && (canJump || (coyoteTime > 0f && Vector2.Dot(rb.linearVelocity, transform.up) <= 0 && enableCoyote)))
         {
@@ -152,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
         movementDisabled -= Time.deltaTime;
         stopOrangeBounceTime -= Time.deltaTime;
         greenTileTime -= Time.deltaTime;
+        greenTileKill -= Time.deltaTime;
 
         if (!speedBoost)
         {
@@ -165,10 +168,18 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(greenTileTime < 0f)
+        if(greenTileTime < 0f && !greenTileReset)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             DisableJumps(0.07f, true);
+            GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
+        }
+        if(greenTileKill < 0f) greenTileKill = 0f;
+        if(greenTileKill > 5f)
+        {
+            FindAnyObjectByType<GameManager>().PlayerDied();
+            greenTileKill = 0f;
+            greenTileTime = -1f;
         }
 
         //rb.linearVelocity = new Vector2(moveValue.x*moveSpeed, rb.linearVelocity.y); // Move left-right
@@ -179,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
         if(jumpValue == 1)
         {
             verticalVelocity = transform.up * jumpForce; //set vertical velocity when jump key pressed
+            jumpValue = 0;
         }
 
         Vector2 horizontalVelocity = (Vector2)transform.right * Vector2.Dot(rb.linearVelocity, transform.right) * slipperyness; //keep left-right velocity
@@ -253,17 +265,31 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if(collider == null) continue;
                     //print(collider.gameObject.name);
+
                     Tile colTile = collider.GetComponent<Tile>();
+                    int droopPaint;
+                    if(collider.gameObject.TryGetComponent<PaintDroop>(out PaintDroop paintDroop))
+                    {
+                        //print(collider.gameObject.transform.parent.name);
+                        droopPaint = paintDroop.CurrentPaint;
+                        colTile = collider.gameObject.transform.parent.gameObject.GetComponent<Tile>();
+                    }
+                    else
+                    {
+                        droopPaint = -1;
+                    }
+                    
                     if(colTile != null)
                     {
-                        if(colTile.tileName == "red")
+                        //print(droopPaint);
+                        if(colTile.tileName == "red" || droopPaint == 0)
                         {
                             moveSpeed = colTile.SpeedBoost;
                             speedBoost = true;
                         }
                         else speedBoost = false;
 
-                        if(colTile.tileName == "orange")
+                        if(colTile.tileName == "orange" || droopPaint == 1)
                         {
                             if(colTile.gameObject.transform.parent == null) continue;
                             if(!stopOrangeBounce && stopOrangeBounceTime < 0f)
@@ -274,28 +300,35 @@ public class PlayerMovement : MonoBehaviour
                             }
                         }
 
-                        if(colTile.tileName == "green")
+                        if(colTile.tileName == "green" || droopPaint == 2)
                         {
+                            greenTileReset = false;
                             Vector2 collisionDirection = contact.normal;
 
-                            Quaternion newRotation;
+                            Vector3 newRotation;
                             if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
                             {
-                                if(collisionDirection.x > 0) newRotation = Quaternion.Euler(0, 0, -90f); //collided right, rotate z to -90 deg
-                                else newRotation = Quaternion.Euler(0, 0, 90f); //collided left, rotate z to 90 deg
+                                if(collisionDirection.x > 0) newRotation = new Vector3(0, 0, -90f); //collided right, rotate z to -90 deg
+                                else newRotation = new Vector3(0, 0, 90f); //collided left, rotate z to 90 deg
                             }
                             else
                             {
-                                if(collisionDirection.y > 0) newRotation = Quaternion.Euler(0, 0, 0); //collided up, reset z to 0 deg
-                                else newRotation = Quaternion.Euler(0, 0, 180f); //collided down, rotate z to 180 deg
+                                if(collisionDirection.y > 0) newRotation = new Vector3(0, 0, 0); //collided up, reset z to 0 deg
+                                else newRotation = new Vector3(0, 0, 180f); //collided down, rotate z to 180 deg
                             }
-                            if(newRotation.eulerAngles.z != transform.rotation.eulerAngles.z)
+                            if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
                             {
-                                transform.rotation = newRotation;
+                                transform.rotation = Quaternion.Euler(newRotation);
                                 movementDisabled = colTile.MovementDisableTime;
                                 DisableJumps(colTile.MovementDisableTime, true);
+                                if(Time.time - lastRotationTime < 0.05f)
+                                {
+                                    greenTileKill += 0.1f;
+                                }
+                                lastRotationTime = Time.time;
+                                GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
                             }
-                            greenTileTime = 0.50f;
+                            greenTileTime = 0.25f;
                         }
                     }
                     
@@ -372,24 +405,25 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (tile.tileName == "green")
             {
+                greenTileReset = false;
                 //rb.gravityScale = 0;
                 //print(transform.InverseTransformPoint(collision.transform.position));
                 //print(collision.GetContact(0).normal);
                 Vector2 collisionDirection = collision.GetContact(0).normal;
 
-                Quaternion newRotation;
+                Vector3 newRotation;
 
                 if(Mathf.Abs(collisionDirection.x) > Mathf.Abs(collisionDirection.y))
                 {
                     if(collisionDirection.x > 0)
                     {
                         //collided right, rotate z to -90 deg
-                        newRotation = Quaternion.Euler(0, 0, -90f);
+                        newRotation = new Vector3(0, 0, -90f);
                     }
                     else
                     {
                         //collided left, rotate z to 90 deg
-                        newRotation = Quaternion.Euler(0, 0, 90f);
+                        newRotation = new Vector3(0, 0, 90f);
                     }
                 }
                 else
@@ -397,21 +431,27 @@ public class PlayerMovement : MonoBehaviour
                     if(collisionDirection.y > 0)
                     {
                         //collided up, reset z to 0 deg
-                        newRotation = Quaternion.Euler(0, 0, 0);
+                        newRotation = new Vector3(0, 0, 0);
                     }
                     else
                     {
                         //collided down, rotate z to 180 deg
-                        newRotation = Quaternion.Euler(0, 0, 180f);
+                        newRotation = new Vector3(0, 0, 180f);
                     }
                 }
-                if(newRotation != transform.rotation)
+                if(Quaternion.Euler(newRotation).eulerAngles.z != transform.rotation.eulerAngles.z)
                 {
-                    transform.rotation = newRotation;
+                    transform.rotation = Quaternion.Euler(newRotation);
                     movementDisabled = tile.MovementDisableTime;
                     DisableJumps(tile.MovementDisableTime, true);
+                    if(Time.time - lastRotationTime < 0.05f)
+                    {
+                        greenTileKill += 0.1f;
+                    }
+                    lastRotationTime = Time.time;
+                    GetComponentInChildren<Camera>().gameObject.transform.localRotation = Quaternion.Euler(new Vector3(newRotation.x, newRotation.y, -newRotation.z));
                 }
-                greenTileTime = 0.50f;
+                greenTileTime = 0.25f;
             }
         }
     }

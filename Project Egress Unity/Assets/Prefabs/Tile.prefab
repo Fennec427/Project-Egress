@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3.125875, y: 3.125875, z: 3.125875}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -159,9 +159,10 @@ MonoBehaviour:
   tileName: tile
   normal: 1
   speedBoost: 10
-  bounceForce: 3
+  bounceForce: 10
   maxBounceForce: 10
   movementDisableTime: 0.07
+  paintDroop: {fileID: 7261416249689350650, guid: 96f5680853e63d543a7a3504d2324d93, type: 3}
 --- !u!61 &112182909476787310
 BoxCollider2D:
   m_ObjectHideFlags: 0
