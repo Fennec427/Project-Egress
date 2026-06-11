@@ -221715,6 +221715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5893326153219515513, guid: 5ac65002bc6a7d840b254c4d6605b986, type: 3}
+      propertyPath: nextSceneName
+      value: Level4
+      objectReference: {fileID: 0}
     - target: {fileID: 7455045755340138353, guid: 5ac65002bc6a7d840b254c4d6605b986, type: 3}
       propertyPath: m_Name
       value: FinishFlag
