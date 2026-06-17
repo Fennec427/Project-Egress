@@ -9,7 +9,6 @@ public class BuzzsawRotation : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<PolygonCollider2D>();
     }
 
     void Update()
